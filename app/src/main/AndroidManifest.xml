@@ -17,6 +17,7 @@
     package="sg.edu.nus.iss.phoenix">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <user-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -30,8 +31,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity android:name=".authenticate.android.ui.LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +41,8 @@
         <activity android:name=".core.android.ui.MainScreen" />
         <activity android:name=".radioprogram.android.ui.ProgramListScreen" />
         <activity android:name=".radioprogram.android.ui.MaintainProgramScreen" />
-        <activity android:name=".radioprogram.android.ui.ReviewSelectProgramScreen"></activity>
+        <activity android:name=".radioprogram.android.ui.ReviewSelectProgramScreen" />
+        <activity android:name=".prms.maintainschedule.activity_maintain_schedule" />
     </application>
 
 </manifest>
