@@ -2,6 +2,8 @@ package sg.edu.nus.iss.phoenix.maintainschedule.android.controller;
 
 import android.content.Intent;
 
+import java.util.List;
+
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.core.android.controller.MainController;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.CreateScheduleDelegate;
@@ -35,9 +37,10 @@ public class ScheduleController {
         new RetrieveScheduleDelegate(this).execute("all");
     }
 
-    public void scheduleRetrieved(List<ProgramSlot> programSlot) {
-        ScheduledProgramScreen.showPrograms(programSlot);
+    public void scheduleRetrieved(List<ProgramSlot> programSlots) {
+        scheduledProgramScreen.showSchedule(programSlots);
     }
+
 
     public void selectCreateSchedule() {
         pr2edit = null;
@@ -76,12 +79,12 @@ public class ScheduleController {
         new DeleteScheduleDelegate(this).execute(pr.getSchedule());
     }
 
-    public void ScheduleDeleted(boolean success) {
+    public void scheduleDeleted(boolean success) {
         // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
     }
 
-    public void ScheduleUpdated(boolean success) {
+    public void scheduleUpdated(boolean success) {
         // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
     }

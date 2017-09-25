@@ -47,20 +47,17 @@ public class CreateScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean
 
         JSONObject json = new JSONObject();
         try {
-            json.put("name", "Test");
-            json.put("description", "TestDes");
-            json.put("typicalDuration", "Duration");
+            json.put("radioProgramName", "dance floor");
+            json.put("dateOfProgram", "2017-09-20 12:11:04");
+            json.put("presenter", "dilbert");
+            json.put("producer", "wally");
+            json.put("assignedBy", "pointyhead");
+            json.put("startTime", "15:00:00");
+            json.put("duration", "00:30:00");
+
         } catch (JSONException e) {
             Log.v(TAG, e.getMessage());
         }
-
-        /*try {
-            json.put("name", params[0].getRadioProgramName());
-            json.put("description", params[0].getRadioProgramDescription());
-            json.put("typicalDuration", params[0].getRadioProgramDuration());
-        } catch (JSONException e) {
-            Log.v(TAG, e.getMessage());
-        }*/
 
         boolean success = false;
         HttpURLConnection httpURLConnection = null;
