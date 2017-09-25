@@ -8,11 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import sg.edu.nus.iss.phoenix.R;
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
-
 
 /**
  * Created by Gaurav on 13-09-2017.
@@ -54,14 +54,22 @@ public class ScheduledProgramScreen extends AppCompatActivity {
 
                 selectedPS = programSlot;
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 // your stuff
             }
         });
-
     }
+
+    public void showSchedules(List<ProgramSlot> programSlots) {
+        mPSAdapter.clear();
+
+        for (int i = 0; i < programSlots.size(); i++) {
+            mPSAdapter.add(programSlots.get(i));
+        }
+    }
+}
+
 
 
 

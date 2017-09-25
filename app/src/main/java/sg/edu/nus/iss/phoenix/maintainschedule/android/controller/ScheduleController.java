@@ -10,7 +10,7 @@ import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.CreateScheduleDe
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.DeleteScheduleDelegate;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.RetrieveScheduleDelegate;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.UpdateScheduleDelegate;
-import sg.edu.nus.iss.phoenix.maintainschedule.android.ui.MaintainScheduleScreen;
+import sg.edu.nus.iss.phoenix.maintainschedule.android.ui.ScheduleScreen;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.ui.ScheduledProgramScreen;
 import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
 
@@ -23,7 +23,7 @@ public class ScheduleController {
     //Tag for Logging
     private static final String TAG = ScheduleController.class.getName();
     private ScheduledProgramScreen scheduledProgramScreen;
-    private MaintainScheduleScreen maintainScheduleScreen;
+    private ScheduleScreen scheduleScreen;
     private ProgramSlot pr2edit = null;
 
     public void startUseCase() {
@@ -37,8 +37,8 @@ public class ScheduleController {
         new RetrieveScheduleDelegate(this).execute("all");
     }
 
-    public void scheduleRetrieved(List<ProgramSlot> programSlots) {
-        scheduledProgramScreen.showSchedule(programSlots);
+    public void schedulesRetrieved(List<ProgramSlot> programSlots) {
+        scheduledProgramScreen.showSchedules(programSlots);
     }
 
 
@@ -53,7 +53,7 @@ public class ScheduleController {
         //  Log.v(TAG, "Editing Schedule: " + programSlot.getSchedule() + "...");
 
 
-        Intent intent = new Intent(MainController.getApp(), MaintainScheduleScreen.class);
+        Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
 /*        Bundle b = new Bundle();
         b.putString("Name", radioProgram.getRadioProgramName());
         b.putString("Description", radioProgram.getRadioProgramDescription());
@@ -63,12 +63,13 @@ public class ScheduleController {
         MainController.displayScreen(intent);
     }
 
-    public void onDisplayProgram(MaintainScheduleScreen maintainScheduleScreen) {
-        this.maintainScheduleScreen = maintainScheduleScreen;
+    public void onDisplaySchedule(ScheduleScreen scheduleScreen) {
+        this.scheduleScreen = scheduleScreen;
+
         if (pr2edit == null)
-            maintainScheduleScreen.createSchedule();
+            scheduleScreen.createSchedule();
         else
-            maintainScheduleScreen.editSchedule(pr2edit);
+            scheduleScreen.editSchedule(pr2edit);
     }
 
     public void selectUpdateSchedule(ProgramSlot pr) {
@@ -76,7 +77,7 @@ public class ScheduleController {
     }
 
     public void selectDeleteSchedule(ProgramSlot pr) {
-        new DeleteScheduleDelegate(this).execute(pr.getSchedule());
+        new DeleteScheduleDelegate(this).execute(pr.getRadioProgramName());
     }
 
     public void scheduleDeleted(boolean success) {
@@ -101,6 +102,11 @@ public class ScheduleController {
     public void selectCancelCreateEditSchedule() {
         //  // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
+    }
+
+    public void scheduleRetrieved(List<ProgramSlot> programSlots) {
+        scheduledProgramScreen.showSchedules(programSlots);
+
     }
 
     public void maintainedProgram() {
