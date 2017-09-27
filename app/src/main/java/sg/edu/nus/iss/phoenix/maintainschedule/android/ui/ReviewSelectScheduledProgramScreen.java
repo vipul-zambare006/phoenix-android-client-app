@@ -20,7 +20,7 @@ public class ReviewSelectScheduledProgramScreen extends AppCompatActivity {
     // Tag for logging
     private static final String TAG = ReviewSelectScheduledProgramScreen.class.getName();
 
-    private ProgramSlotAdapter mPRAdapter;
+    private ProgramSlotAdapter mPSAdapter;
     private ListView mListView;
     private ProgramSlot selectedPS = null;
 
@@ -30,12 +30,10 @@ public class ReviewSelectScheduledProgramScreen extends AppCompatActivity {
 
         ArrayList<ProgramSlot> programSlots = new ArrayList<ProgramSlot>();
 
-        mPRAdapter = new ProgramSlotAdapter(this, programSlots);
+        mPSAdapter = new ProgramSlotAdapter(this, programSlots);
+        mListView = (ListView) findViewById(R.id.review_select_ps_list);
 
-        //TODO Change the below line
-        //mListView = (ListView) findViewById(R.id.review_select_pm_list);
-
-        mListView.setAdapter(mPRAdapter);
+        mListView.setAdapter(mPSAdapter);
 
         // Setup the item selection listener
         mListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,10 +55,10 @@ public class ReviewSelectScheduledProgramScreen extends AppCompatActivity {
 
 
     public void showPrograms(List<ProgramSlot> programSlots) {
-        mPRAdapter.clear();
+        mPSAdapter.clear();
 
         for (int i = 0; i < programSlots.size(); i++) {
-            mPRAdapter.add(programSlots.get(i));
+            mPSAdapter.add(programSlots.get(i));
         }
     }
 }

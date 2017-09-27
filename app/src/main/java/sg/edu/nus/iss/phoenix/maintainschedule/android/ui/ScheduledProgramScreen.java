@@ -39,7 +39,8 @@ public class ScheduledProgramScreen extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ControlFactory.getProgramController().selectCreateProgram();
+                ControlFactory.getScheduleController().selectCreateSchedule();
+
             }
         });
 

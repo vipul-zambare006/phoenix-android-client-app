@@ -32,9 +32,7 @@ public class ReviewSelectProgramScreen extends AppCompatActivity {
         setContentView(R.layout.activity_review_select_program);
 
         ArrayList<RadioProgram> radioPrograms = new ArrayList<RadioProgram>();
-        // ArrayList<String> radioProgramNames = new ArrayList<String>();
-        // mRPAdapter = new ArrayAdapter<String>(this, R.layout.activity_review_select_program,
-        //        R.id.maintain_program_name_text_view, radioProgramNames);
+
         mRPAdapter = new RadioProgramAdapter(this, radioPrograms);
 
         mListView = (ListView) findViewById(R.id.review_select_pm_list);

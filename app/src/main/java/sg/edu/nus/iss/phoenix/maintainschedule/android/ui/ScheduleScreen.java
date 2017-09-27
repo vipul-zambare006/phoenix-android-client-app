@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import sg.edu.nus.iss.phoenix.R;
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
@@ -18,11 +21,10 @@ import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
 public class ScheduleScreen extends AppCompatActivity {
     // Tag for logging
     private static final String TAG = ScheduleScreen.class.getName();
+    private Button radio_program, presenter_producer;
 
-    /*private EditText mRPNameEditText;
-    private EditText mRPDescEditText;
-    private EditText mDurationEditText;
-    */
+    private EditText mDate;
+    private EditText mTime;
 
     private ProgramSlot pr2edit = null;
 
@@ -33,14 +35,20 @@ public class ScheduleScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_maintain_schedule);
 
-        // Find all relevant views that we will need to read user input from
-        /*mRPNameEditText = (EditText) findViewById(R.id.maintain_program_name_text_view);
-        mRPDescEditText = (EditText) findViewById(R.id.maintain_program_desc_text_view);
-        mDurationEditText = (EditText) findViewById(R.id.maintain_program_duration_text_view);
-        */
-        // Keep the KeyListener for name EditText so as to enable editing after disabling it.
-        //mPSNameEDitTextKeyListner = mPSNameEditText.getKeyListner();
-        //mRPNameEditTextKeyListener = mRPNameEditText.getKeyListener();
+        radio_program = (Button) findViewById(R.id.programName);
+        presenter_producer = (Button) findViewById(R.id.presenter_producer);
+
+        radio_program.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ControlFactory.getMainController().selectReviewProgram();
+            }
+        });
+
+        /*presenter_producer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+            }
+        });*/
     }
 
     @Override
@@ -112,6 +120,14 @@ public class ScheduleScreen extends AppCompatActivity {
 
                 Log.v(TAG, "Canceling creating/editing Program slot ...");
                 ControlFactory.getScheduleController().selectCancelCreateEditSchedule();
+                return true;
+
+            case R.id.action_copy:
+
+                Log.v(TAG, "Copying Program slot ...");
+
+                //ControlFactory.getScheduleController().selectCancelCreateEditSchedule();
+
                 return true;
         }
 

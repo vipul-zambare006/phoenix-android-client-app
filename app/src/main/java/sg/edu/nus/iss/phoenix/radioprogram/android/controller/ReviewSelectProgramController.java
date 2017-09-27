@@ -29,6 +29,10 @@ public class ReviewSelectProgramController {
         new RetrieveProgramsDelegate(this).execute("all");
     }
 
+    public void displayReviewSelect() {
+        ControlFactory.getReviewSelectProgramController().startUseCase();
+    }
+
     public void programsRetrieved(List<RadioProgram> radioPrograms) {
         reviewSelectProgramScreen.showPrograms(radioPrograms);
     }

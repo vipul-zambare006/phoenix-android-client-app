@@ -13,42 +13,45 @@
         android:text="Select Radio Program"
         tools:text="Select Radio Program" />
 
-    <Spinner
+    <Button
         android:id="@+id/programName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click here" />
+
+    <TextView
+        android:id="@+id/slected_programName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:text="Selected Radio Program"
+        tools:text="Selected Radio Program" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Presenter Name"
-        tools:text="Presenter Name" />
+        android:text="Slect Presenter and Producer"
+        tools:text="Slect Presenter and Producer" />
 
-    <Spinner
-        android:id="@+id/presenter"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/presenter_producer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:text="Click here" />
 
     <TextView
+        android:id="@+id/selected_Presenter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Producer Name"
-        tools:text="Producer Name" />
-
-    <Spinner
-        android:id="@+id/producer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
-
+        android:text="Selected Presenter"
+        tools:text="Selected Radio Program" />
 
     <TextView
+        android:id="@+id/slected_producer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Program Name"
-        tools:text="Radio Program Name" />
+        android:text="Selected  Producer"
+        tools:text="Selected Producer" />
+
 
     <TextView
         android:layout_width="match_parent"
@@ -73,30 +76,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="3:00 PM" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/cancel_action"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:padding="8dp"
-            android:text="Cancel" />
-
-        <Button
-            android:id="@+id/submit_action"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Submit" />
-
-    </LinearLayout>
-
 
 </LinearLayout>
 

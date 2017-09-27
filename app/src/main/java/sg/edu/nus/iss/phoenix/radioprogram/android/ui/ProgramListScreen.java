@@ -118,5 +118,6 @@ public class ProgramListScreen extends AppCompatActivity {
             mRPAdapter.add(radioPrograms.get(i));
         }
     }
+
 }
 

@@ -44,7 +44,7 @@ public class ScheduleController {
 
     public void selectCreateSchedule() {
         pr2edit = null;
-        Intent intent = new Intent(MainController.getApp(), ScheduledProgramScreen.class);
+        Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
         MainController.displayScreen(intent);
     }
 

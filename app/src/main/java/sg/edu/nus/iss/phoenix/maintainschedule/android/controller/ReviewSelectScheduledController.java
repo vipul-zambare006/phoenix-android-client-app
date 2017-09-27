@@ -47,6 +47,7 @@ public class ReviewSelectScheduledController {
 
     }
 
+
     public void selectCancel() {
         prSelected = null;
         Log.v(TAG, "Cancelled the seleciton of Program Slot.");

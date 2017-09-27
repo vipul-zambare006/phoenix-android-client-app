@@ -41,6 +41,10 @@ public class MainController {
         ControlFactory.getProgramController().startUseCase();
     }
 
+    public void selectReviewProgram() {
+        ControlFactory.getReviewSelectProgramController().startUseCase();
+    }
+
     public void maintainedProgram() {
         startUseCase(username);
     }
@@ -53,7 +57,15 @@ public class MainController {
     public void selectMaintainSchedule() {
         // This is the placeholder for starting the Maintain Schedule use case.
         // At present, it ii used to test the invocation of  Review Select Radio Program use case.
+        ControlFactory.getScheduleController().startUseCase();
+        //ControlFactory.getReviewSelectProgramController().startUseCase();
+    }
+
+    public void selectReviewSelectScheduledProgram() {
+        // This is the placeholder for starting the Maintain Schedule use case.
+        // At present, it ii used to test the invocation of  Review Select Radio Program use case.
         ControlFactory.getReviewSelectProgramController().startUseCase();
+        //ControlFactory.getReviewSelectProgramController().startUseCase();
     }
 
     // This is a dummy operation to test the invocation of Review Select Radio Program use case.

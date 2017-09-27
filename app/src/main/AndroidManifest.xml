@@ -42,7 +42,10 @@
         <activity android:name=".radioprogram.android.ui.ProgramListScreen" />
         <activity android:name=".radioprogram.android.ui.MaintainProgramScreen" />
         <activity android:name=".radioprogram.android.ui.ReviewSelectProgramScreen" />
-        <activity android:name=".prms.maintainschedule.activity_maintain_schedule" />
+        <activity android:name=".maintainschedule.android.ui.ScheduledProgramScreen" />
+        <activity android:name=".maintainschedule.android.ui.ScheduleScreen" />
+        <activity android:name=".maintainschedule.android.ui.ReviewSelectScheduledProgramScreen" />
+
     </application>
 
 </manifest>
