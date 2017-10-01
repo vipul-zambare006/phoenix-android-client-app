@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,19 +45,16 @@ public class CreateUserDelegate extends AsyncTask<User, Void, Boolean> {
             return new Boolean(false);
         }
         JSONObject json = new JSONObject();
-        JSONArray jsonArray = new JSONArray();
         try {
             json.put("id", params[0].getUserName());
             json.put("name", params[0].getUserDescription());
-            //JSONObject jsonRoles = new JSONObject();
-            json.put("role", params[0].getUserRole());
-//            jsonRoles.put("role", params[0].getUserRole());
-            //  json.put("roles", jsonRoles);
+            JSONObject jsonRoles = new JSONObject();
+            jsonRoles.put("role", params[0].getUserRole());
+            json.put("roles", jsonRoles);
 
         } catch (JSONException e) {
             Log.v(TAG, e.getMessage());
         }
-
 
         boolean success = false;
         HttpURLConnection httpURLConnection = null;

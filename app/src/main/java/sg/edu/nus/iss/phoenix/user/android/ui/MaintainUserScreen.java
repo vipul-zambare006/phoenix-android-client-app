@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.KeyListener;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -76,9 +75,6 @@ public class MaintainUserScreen extends AppCompatActivity {
                 if (useredit == null) { // Newly created.
                     User user = new User(userNameEditText.getText().toString(),
                             userDescEditText.getText().toString(), userRoleEditText.getText().toString());
-
-                    Log.v(TAG, "User Role " + userRoleEditText.getText().toString() + "...");
-
                     ControlFactory.getUserController().selectCreateUser(user);
                 } else { // Edited.
                     //Log.v(TAG, "Saving radio program " + rp2edit.getRadioProgramName() + "...");

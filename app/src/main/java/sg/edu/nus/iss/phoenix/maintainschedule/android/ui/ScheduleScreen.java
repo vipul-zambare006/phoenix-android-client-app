@@ -147,6 +147,13 @@ public class ScheduleScreen extends AppCompatActivity {
                 ControlFactory.getScheduleController().selectCancelCreateEditSchedule();
                 return true;
 
+            case R.id.action_copy:
+
+                Log.v(TAG, "Copying Program slot ...");
+
+                //ControlFactory.getScheduleController().selectCancelCreateEditSchedule();
+
+                return true;
         }
 
         return true;

@@ -35,6 +35,10 @@ public class ProgramListScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_list);
 
+        // mRPNameEditText = (EditText) findViewById(R.id.maintain_program_name_text_view);
+        // mRPDescEditText = (EditText) findViewById(R.id.maintain_program_desc_text_view);
+        // mDurationEditText = (EditText) findViewById(R.id.maintain_program_duration_text_view);
+
         ArrayList<RadioProgram> radioPrograms = new ArrayList<RadioProgram>();
         mRPAdapter = new RadioProgramAdapter(this, radioPrograms);
 
