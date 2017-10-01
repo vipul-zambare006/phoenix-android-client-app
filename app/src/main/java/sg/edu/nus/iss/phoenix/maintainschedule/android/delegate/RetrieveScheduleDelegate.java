@@ -80,21 +80,21 @@ public class RetrieveScheduleDelegate extends AsyncTask<String, Void, String> {
 
         if (result != null && !result.equals("")) {
             try {
-                JSONObject reader = new JSONObject(result);
-                JSONArray prArray = reader.getJSONArray("prList");
+                JSONArray prArray = new JSONArray(result);
+                //JSONArray prArray = reader.getJSONArray("prList");
 
                 for (int i = 0; i < prArray.length(); i++) {
                     JSONObject prJson = prArray.getJSONObject(i);
 
-                    String radioProgramName = prJson.getString("radioProgramName");
-                    String presenter = prJson.getString("presenter");
-                    String producer = prJson.getString("producer");
-                    String assignedBy = prJson.getString("assignedBy");
+                    String radioProgramName = prJson.getString("radioProgramId");
+                    String presenter = prJson.getString("presenterId");
+                    String producer = prJson.getString("producerId");
+                    //String assignedBy = prJson.getString("assignedBy");
                     String dateOfProgram = prJson.getString("dateOfProgram");
                     String startTime = prJson.getString("startTime");
                     String duration = prJson.getString("duration");
 
-                    programSlots.add(new ProgramSlot(radioProgramName, presenter, producer, assignedBy, dateOfProgram, startTime, duration));
+                    programSlots.add(new ProgramSlot(radioProgramName, presenter, producer, "", dateOfProgram, startTime, duration));
 
                 }
             } catch (JSONException e) {

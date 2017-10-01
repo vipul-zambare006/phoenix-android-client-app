@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -31,25 +36,36 @@ public class ProgramSlotAdapter extends ArrayAdapter<ProgramSlot> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.activity_maintain_schedule, parent, false);
+                    R.layout.activity_scheduled_program, parent, false);
         }
-        //    Word currentWord = getItem(position);
         ProgramSlot currentPS = getItem(position);
 
         //TODO Complete as per design.
 
-        /*EditText radioPMName = (EditText)listItemView.findViewById(R.id.maintain_program_name_text_view);
-        radioPMName.setText(currentRP.getRadioProgramName(), TextView.BufferType.NORMAL);
+        EditText radioPMName = (EditText)listItemView.findViewById(R.id.radio_program_name);
+        radioPMName.setText(currentPS.getRadioProgramName(), TextView.BufferType.NORMAL);
         radioPMName.setKeyListener(null); // This disables editing.
 
-        EditText radioPMDesc = (EditText)listItemView.findViewById(R.id.maintain_program_desc_text_view);
-        radioPMDesc.setText(currentRP.getRadioProgramDescription(), TextView.BufferType.NORMAL);
-        radioPMDesc.setKeyListener(null);
+        EditText dateOfProgram = (EditText)listItemView.findViewById(R.id.date_of_program);
+        dateOfProgram.setText(currentPS.getDateOfProgram(), TextView.BufferType.NORMAL);
+        dateOfProgram.setKeyListener(null);
 
-        EditText radioPMDuration = (EditText)listItemView.findViewById(R.id.maintain_program_duration_text_view);
-        radioPMDuration.setText(currentRP.getRadioProgramDuration(), TextView.BufferType.NORMAL);
-        radioPMDuration.setKeyListener(null);
-*/
+        EditText startTime = (EditText)listItemView.findViewById(R.id.start_time);
+        startTime.setText(currentPS.getStartTime(), TextView.BufferType.NORMAL);
+        startTime.setKeyListener(null);
+
+        EditText duration = (EditText)listItemView.findViewById(R.id.duration);
+        duration.setText(currentPS.getDuration(), TextView.BufferType.NORMAL);
+        duration.setKeyListener(null);
+
+        EditText presenter = (EditText)listItemView.findViewById(R.id.presenter);
+        presenter.setText(currentPS.getPresenter(), TextView.BufferType.NORMAL);
+        presenter.setKeyListener(null);
+
+        EditText producer = (EditText)listItemView.findViewById(R.id.producer);
+        producer.setText(currentPS.getProducer(), TextView.BufferType.NORMAL);
+        producer.setKeyListener(null);
+
         return listItemView;
     }
 

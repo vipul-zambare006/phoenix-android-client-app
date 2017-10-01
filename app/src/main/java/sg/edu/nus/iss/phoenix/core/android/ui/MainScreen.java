@@ -29,7 +29,6 @@ public class MainScreen extends AppCompatActivity {
             public void onClick(View view) {
                 ControlFactory.getMainController().selectMaintainProgram();
             }
-
         });
 
         mbtn_schedule = (Button) findViewById(R.id.button_schedule);
