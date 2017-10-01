@@ -20,7 +20,7 @@
         android:text="Click here" />
 
     <TextView
-        android:id="@+id/slected_programName"
+        android:id="@+id/maintain_schedule_selected_programName_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Selected Radio Program"
@@ -39,14 +39,14 @@
         android:text="Click here" />
 
     <TextView
-        android:id="@+id/selected_Presenter"
+        android:id="@+id/maintain_schedule_selected_Presenter_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Selected Presenter"
         tools:text="Selected Radio Program" />
 
     <TextView
-        android:id="@+id/slected_producer"
+        android:id="@+id/maintain_schedule_selected_producer_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Selected  Producer"
@@ -60,7 +60,7 @@
         tools:text="Enter Date" />
 
     <EditText
-        android:id="@+id/date"
+        android:id="@+id/maintain_schedule_date_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Mar 6, 2010" />
@@ -72,10 +72,12 @@
         tools:text="Enter Time" />
 
     <EditText
-        android:id="@+id/time"
+        android:id="@+id/maintain_schedule_time_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="3:00 PM" />
+        android:maxLength="8"
+        android:text="00:30:00"
+        tools:text="00:30:00" />
 
 </LinearLayout>
 

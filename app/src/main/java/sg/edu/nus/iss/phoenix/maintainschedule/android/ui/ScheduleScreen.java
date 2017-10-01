@@ -25,6 +25,7 @@ import sg.edu.nus.iss.phoenix.radioprogram.android.ui.ReviewSelectProgramScreen;
 public class ScheduleScreen extends AppCompatActivity {
     // Tag for logging
     private static final String TAG = ScheduleScreen.class.getName();
+    String duration = null;
     private Button radio_program, presenter_producer;
     private EditText mDate;
     private EditText mTime;
@@ -37,9 +38,11 @@ public class ScheduleScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_maintain_schedule);
-        rpTextView = (TextView) findViewById(R.id.slected_programName);
+        rpTextView = (TextView) findViewById(R.id.maintain_schedule_selected_programName_text_view);
         radio_program = (Button) findViewById(R.id.programName);
         presenter_producer = (Button) findViewById(R.id.presenter_producer);
+        mDate = (EditText) findViewById(R.id.maintain_schedule_date_text_view);
+        mTime = (EditText) findViewById(R.id.maintain_schedule_time_text_view);
 
         // rpTextView.setText(radioProgramName);
 
@@ -47,13 +50,7 @@ public class ScheduleScreen extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent input = new Intent(v.getContext(), ReviewSelectProgramScreen.class);
-
                 startActivityForResult(input, 1);
-
-                //ControlFactory.getReviewSelectProgramController().displayReviewSelect();
-                //ControlFactory.getScheduleController().selectReviewProgram();
-                /*ControlFactory.getMainController().selectReviewProgram();*/
-
             }
         });
 
@@ -63,21 +60,23 @@ public class ScheduleScreen extends AppCompatActivity {
             }
         });*/
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
                 String radioProgramName = data.getStringExtra("radioProgramName");
+                duration = data.getStringExtra("duration");
                 rpTextView.setText(radioProgramName);
+
 
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
         }
-    }//onActivityResult
+    } //onActivityResult
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -113,18 +112,17 @@ public class ScheduleScreen extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
-                // Save radio program.
-                if (pr2edit == null) { // Newly created.
-                    //TODO Need to change the below log statement as per input
-                    //Log.v(TAG, "Saving Program Slot" + mRPNameEditText.getText().toString() + "...");
 
-                    //TODO Change the below code as per use case.
-                    //RadioProgram rp = new RadioProgram(mRPNameEditText.getText().toString(),
-                    //ProgramSlot ps = new ProgramSlot();
+                // Save  ProgramSlot .
+                if (pr2edit == null) {
+                    // Newly created.
+                    Log.v(TAG, "Saving Program Slot" + rpTextView.getText().toString() + "...");
 
-                    //mRPDescEditText.getText().toString(), mDurationEditText.getText().toString());
-                    // TODO Need to update as per ui change.
-                    // ControlFactory.getScheduleController().selectCreateSchedule(ps);
+                    ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(),
+                            "Presenter", "Producer", "assignedBy", "duration", "2017-09-20 12:11:04",
+                            "15:00:00");
+                    ControlFactory.getScheduleController().selectCreateSchedule(ps);
+
                 } else { // Edited.
                     //TODO Change the below Log Statement
 
