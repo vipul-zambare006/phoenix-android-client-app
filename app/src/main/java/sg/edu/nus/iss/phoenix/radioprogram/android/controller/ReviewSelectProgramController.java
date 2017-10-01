@@ -11,6 +11,8 @@ import sg.edu.nus.iss.phoenix.radioprogram.android.delegate.RetrieveProgramsDele
 import sg.edu.nus.iss.phoenix.radioprogram.android.ui.ReviewSelectProgramScreen;
 import sg.edu.nus.iss.phoenix.radioprogram.entity.RadioProgram;
 
+import static sg.edu.nus.iss.phoenix.core.android.controller.MainController.displayScreen;
+
 public class ReviewSelectProgramController {
     // Tag for logging.
     private static final String TAG = ReviewSelectProgramController.class.getName();
@@ -20,8 +22,9 @@ public class ReviewSelectProgramController {
 
     public void startUseCase() {
         rpSelected = null;
+
         Intent intent = new Intent(MainController.getApp(), ReviewSelectProgramScreen.class);
-        MainController.displayScreen(intent);
+        displayScreen(intent);
     }
 
     public void onDisplay(ReviewSelectProgramScreen reviewSelectProgramScreen) {
@@ -30,7 +33,9 @@ public class ReviewSelectProgramController {
     }
 
     public void displayReviewSelect() {
+
         ControlFactory.getReviewSelectProgramController().startUseCase();
+
     }
 
     public void programsRetrieved(List<RadioProgram> radioPrograms) {
@@ -42,6 +47,7 @@ public class ReviewSelectProgramController {
         Log.v(TAG, "Selected radio program: " + radioProgram.getRadioProgramName() + ".");
         // To call the base use case controller with the selected radio program.
         // At present, call the MainController instead.
+
         ControlFactory.getMainController().selectedProgram(rpSelected);
     }
 

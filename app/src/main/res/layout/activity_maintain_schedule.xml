@@ -29,8 +29,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Slect Presenter and Producer"
-        tools:text="Slect Presenter and Producer" />
+        android:text="Select Presenter and Producer"
+        tools:text="Select Presenter and Producer" />
 
     <Button
         android:id="@+id/presenter_producer"

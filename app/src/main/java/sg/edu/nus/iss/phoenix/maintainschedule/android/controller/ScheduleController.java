@@ -41,11 +41,14 @@ public class ScheduleController {
         scheduledProgramScreen.showSchedules(programSlots);
     }
 
-
     public void selectCreateSchedule() {
         pr2edit = null;
         Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
         MainController.displayScreen(intent);
+    }
+
+    public void selectReviewProgram() {
+        ControlFactory.getReviewSelectProgramController().startUseCase();
     }
 
     public void selectEditSchedule(ProgramSlot programSlot) {

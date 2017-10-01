@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.phoenix.maintainschedule.android.ui;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import sg.edu.nus.iss.phoenix.R;
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
+import sg.edu.nus.iss.phoenix.radioprogram.android.ui.ReviewSelectProgramScreen;
 
 /**
  * Created by Gaurav on 26-09-2017.
@@ -22,10 +26,9 @@ public class ScheduleScreen extends AppCompatActivity {
     // Tag for logging
     private static final String TAG = ScheduleScreen.class.getName();
     private Button radio_program, presenter_producer;
-
     private EditText mDate;
     private EditText mTime;
-
+    private TextView rpTextView, producerTextView, PresenterTextViewl;
     private ProgramSlot pr2edit = null;
 
     // KeyListener mPSNameEDitTextKeyListner = null;
@@ -34,13 +37,23 @@ public class ScheduleScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_maintain_schedule);
-
+        rpTextView = (TextView) findViewById(R.id.slected_programName);
         radio_program = (Button) findViewById(R.id.programName);
         presenter_producer = (Button) findViewById(R.id.presenter_producer);
 
+        // rpTextView.setText(radioProgramName);
+
         radio_program.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ControlFactory.getMainController().selectReviewProgram();
+
+                Intent input = new Intent(v.getContext(), ReviewSelectProgramScreen.class);
+
+                startActivityForResult(input, 1);
+
+                //ControlFactory.getReviewSelectProgramController().displayReviewSelect();
+                //ControlFactory.getScheduleController().selectReviewProgram();
+                /*ControlFactory.getMainController().selectReviewProgram();*/
+
             }
         });
 
@@ -51,6 +64,20 @@ public class ScheduleScreen extends AppCompatActivity {
         });*/
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                String radioProgramName = data.getStringExtra("radioProgramName");
+                rpTextView.setText(radioProgramName);
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

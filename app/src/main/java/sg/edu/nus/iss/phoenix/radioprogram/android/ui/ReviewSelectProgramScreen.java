@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.phoenix.radioprogram.android.ui;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import java.util.List;
 
 import sg.edu.nus.iss.phoenix.R;
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
+import sg.edu.nus.iss.phoenix.maintainschedule.android.ui.ScheduleScreen;
 import sg.edu.nus.iss.phoenix.radioprogram.entity.RadioProgram;
 
 public class ReviewSelectProgramScreen extends AppCompatActivity {
@@ -44,8 +47,9 @@ public class ReviewSelectProgramScreen extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 // Log.v(TAG, "Radio program at position " + position + " selected.");
                 RadioProgram rp = (RadioProgram) adapterView.getItemAtPosition(position);
-                // Log.v(TAG, "Radio program name is " + rp.getRadioProgramName());
+                Log.v(TAG, "Radio program name is " + rp.getRadioProgramName());
                 selectedRP = rp;
+
             }
 
             @Override
@@ -84,7 +88,14 @@ public class ReviewSelectProgramScreen extends AppCompatActivity {
                     Log.v(TAG, "There is no selected radio program.");
                 } else {
                     Log.v(TAG, "Selected radio program: " + selectedRP.getRadioProgramName() + "...");
-                    ControlFactory.getReviewSelectProgramController().selectProgram(selectedRP);
+
+                    Intent rpintent = new Intent(ReviewSelectProgramScreen.this, ScheduleScreen.class);
+                    rpintent.putExtra("radioProgramName", selectedRP.getRadioProgramName());
+                    setResult(Activity.RESULT_OK, rpintent);
+
+                    startActivityForResult(rpintent, 1);
+
+                    //ControlFactory.getReviewSelectProgramController().selectProgram(selectedRP);
                 }
         }
 
