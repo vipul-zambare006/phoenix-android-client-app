@@ -89,7 +89,6 @@ public class RetrieveScheduleDelegate extends AsyncTask<String, Void, String> {
                     String radioProgramName = prJson.getString("radioProgramId");
                     String presenter = prJson.getString("presenterId");
                     String producer = prJson.getString("producerId");
-                    //String assignedBy = prJson.getString("assignedBy");
                     String dateOfProgram = prJson.getString("dateOfProgram");
                     String startTime = prJson.getString("startTime");
                     String duration = prJson.getString("duration");
