@@ -92,8 +92,7 @@ public class ReviewSelectProgramScreen extends AppCompatActivity {
                     Intent rpintent = new Intent(ReviewSelectProgramScreen.this, ScheduleScreen.class);
                     rpintent.putExtra("radioProgramName", selectedRP.getRadioProgramName());
                     setResult(Activity.RESULT_OK, rpintent);
-
-                    startActivityForResult(rpintent, 1);
+                    finish();
 
                     //ControlFactory.getReviewSelectProgramController().selectProgram(selectedRP);
                 }

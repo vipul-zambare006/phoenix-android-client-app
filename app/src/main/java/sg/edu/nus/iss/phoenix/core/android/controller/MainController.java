@@ -54,6 +54,10 @@ public class MainController {
         ControlFactory.getLoginController().logout();
     }
 
+    public void selectMaintainUser() {
+        ControlFactory.getUserController().startUseCase();
+    }
+
     public void selectMaintainSchedule() {
         // This is the placeholder for starting the Maintain Schedule use case.
         // At present, it ii used to test the invocation of  Review Select Radio Program use case.
