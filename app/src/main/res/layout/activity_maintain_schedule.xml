@@ -5,32 +5,47 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context=".maintainschedule.android.ui.ScheduleScreen">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Radio Program"
-        tools:text="Select Radio Program" />
-
-    <Button
-        android:id="@+id/programName"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click here" />
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:text="Select Radio Program"
+            tools:text="Select Radio Program" />
+
+        <Button
+            android:id="@+id/programName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click here" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
     <TextView
-        android:id="@+id/maintain_schedule_selected_programName_text_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected Radio Program"
-        tools:text="Selected Radio Program" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Presenter and Producer"
-        tools:text="Select Presenter and Producer" />
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:text="Select Presenter/Producer"
+        tools:text="Select Presenter/Producer" />
 
     <Button
         android:id="@+id/presenter_producer"
@@ -38,36 +53,62 @@
         android:layout_height="wrap_content"
         android:text="Click here" />
 
-    <TextView
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/maintain_schedule_selected_programName_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:text="Selected Radio Program"
+            tools:text="Selected Radio Program" />
+
+        <TextView
         android:id="@+id/maintain_schedule_selected_Presenter_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
         android:text="Selected Presenter"
-        tools:text="Selected Radio Program" />
+            tools:text="Selected Presenter" />
 
     <TextView
         android:id="@+id/maintain_schedule_selected_producer_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
         android:text="Selected  Producer"
         tools:text="Selected Producer" />
-
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
         android:text="Enter Date"
         tools:text="Enter Date" />
-
     <EditText
         android:id="@+id/maintain_schedule_date_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
         tools:text="Mar 6, 2010" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
         android:text="Enter Time"
         tools:text="Enter Time" />
 
@@ -75,9 +116,12 @@
         android:id="@+id/maintain_schedule_time_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:maxLength="8"
+        android:padding="8dp"
         android:text="00:30:00"
         tools:text="00:30:00" />
 
 </LinearLayout>
 
+</LinearLayout>

@@ -71,7 +71,6 @@ public class ScheduledProgramScreen extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setSelection(0);
-
         ControlFactory.getScheduleController().onDisplayScheduleList(this);
     }
 
@@ -79,7 +78,7 @@ public class ScheduledProgramScreen extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu options from the res/menu/menu_editor.xml file.
         // This adds menu items to the app bar.
-        getMenuInflater().inflate(R.menu.menu_list, menu);
+        getMenuInflater().inflate(R.menu.menu_schedule_list, menu);
         return true;
     }
 
@@ -94,9 +93,23 @@ public class ScheduledProgramScreen extends AppCompatActivity {
                     Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
                     Log.v(TAG, "There is no selected program slot.");
                 } else {
-                    Log.v(TAG, "Viewing program slot: " + selectedPS.getRadioProgramName() + "...");
+                    Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
+                    //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
                     ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
                 }
+                //TODO for Copy Action to be performed here.
+            case R.id.action_copy:
+                if (selectedPS == null) {
+                    // Prompt for the selection of a radio program.
+                    Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
+                    Log.v(TAG, "There is no selected program slot.");
+                } else {
+                    Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
+                    //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
+                    //TODO Copy function to be called here
+                    //ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
+                }
+
         }
 
         return true;
@@ -106,7 +119,6 @@ public class ScheduledProgramScreen extends AppCompatActivity {
     public void onBackPressed() {
         ControlFactory.getScheduleController().maintainedProgram();
     }
-
 
     public void showSchedules(List<ProgramSlot> programSlots) {
         mPSAdapter.clear();
