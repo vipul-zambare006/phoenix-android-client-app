@@ -81,7 +81,6 @@ public class RetrieveScheduleDelegate extends AsyncTask<String, Void, String> {
         if (result != null && !result.equals("")) {
             try {
                 JSONArray prArray = new JSONArray(result);
-                //JSONArray prArray = reader.getJSONArray("prList");
 
                 for (int i = 0; i < prArray.length(); i++) {
                     JSONObject prJson = prArray.getJSONObject(i);
@@ -93,7 +92,7 @@ public class RetrieveScheduleDelegate extends AsyncTask<String, Void, String> {
                     String startTime = prJson.getString("startTime");
                     String duration = prJson.getString("duration");
 
-                    programSlots.add(new ProgramSlot(radioProgramName, presenter, producer, "", dateOfProgram, startTime, duration));
+                    programSlots.add(new ProgramSlot(radioProgramName, presenter, producer, "", duration, startTime, dateOfProgram));
 
                 }
             } catch (JSONException e) {
