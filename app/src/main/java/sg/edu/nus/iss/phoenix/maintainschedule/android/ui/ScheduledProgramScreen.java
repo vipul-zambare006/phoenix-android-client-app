@@ -18,7 +18,6 @@ import java.util.List;
 import sg.edu.nus.iss.phoenix.R;
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
-import sg.edu.nus.iss.phoenix.radioprogram.entity.RadioProgram;
 
 /**
  * Created by Gaurav on 13-09-2017.
@@ -107,7 +106,9 @@ public class ScheduledProgramScreen extends AppCompatActivity {
                     Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
                     //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
                     //TODO Copy function to be called here
+                    selectedPS.setAction("copy");
                     //ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
+                    ControlFactory.getScheduleController().selectCopySchedule(selectedPS);
                 }
 
         }

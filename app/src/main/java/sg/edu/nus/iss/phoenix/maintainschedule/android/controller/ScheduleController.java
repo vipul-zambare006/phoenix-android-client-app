@@ -25,6 +25,7 @@ public class ScheduleController {
     private ScheduledProgramScreen scheduledProgramScreen;
     private ScheduleScreen scheduleScreen;
     private ProgramSlot pr2edit = null;
+    private String copy_string = "copy";
 
     public void startUseCase() {
         pr2edit = null;
@@ -54,21 +55,35 @@ public class ScheduleController {
 
     public void selectEditSchedule(ProgramSlot programSlot) {
         pr2edit = programSlot;
+        Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
+        MainController.displayScreen(intent);
+    }
 
+    public void selectCopySchedule(ProgramSlot programSlot) {
+        pr2edit = programSlot;
         Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
         MainController.displayScreen(intent);
     }
 
     public void onDisplaySchedule(ScheduleScreen scheduleScreen) {
         this.scheduleScreen = scheduleScreen;
+
         if (pr2edit == null)
             scheduleScreen.createSchedule();
-        else
+        else if (pr2edit.getAction().toLowerCase() != copy_string) {
             scheduleScreen.editSchedule(pr2edit);
+        } else {
+            scheduleScreen.copySchedule(pr2edit);
+        }
+
     }
 
     public void selectUpdateSchedule(ProgramSlot pr) {
         new UpdateScheduleDelegate(this).execute(pr);
+    }
+
+    public void selectCopyupdateSchedule(ProgramSlot pr) {
+        // new CopyScheduleDelegate(this).execute(pr);
     }
 
     public void selectDeleteSchedule(ProgramSlot pr) {

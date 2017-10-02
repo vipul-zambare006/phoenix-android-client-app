@@ -14,6 +14,7 @@ public class ProgramSlot {
     private String duration;
     private String startTime;
     private String dateOfProgram;
+    private String action;
 
     public ProgramSlot(String radioProgramName, String presenter, String producer, String assignedBy, String duration, String startTime, String dateOfProgram) {
         this.radioProgramName = radioProgramName;
@@ -23,6 +24,14 @@ public class ProgramSlot {
         this.duration = duration;
         this.startTime = startTime;
         this.dateOfProgram = dateOfProgram;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 
     public String getRadioProgramName() {
