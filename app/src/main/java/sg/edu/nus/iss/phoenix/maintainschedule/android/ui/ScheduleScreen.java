@@ -171,6 +171,15 @@ public class ScheduleScreen extends AppCompatActivity {
         this.pr2edit = null;
         // TODO Change the Following to perform Create Operation.
 
+        rpTextView.setText("", TextView.BufferType.EDITABLE);
+        producerTextView.setText("", TextView.BufferType.EDITABLE);
+        PresenterTextView.setText("", TextView.BufferType.EDITABLE);
+        mdateofprogram.setText("", TextView.BufferType.EDITABLE);
+        mduration.setText("", TextView.BufferType.EDITABLE);
+        starttime.setText("", TextView.BufferType.EDITABLE);
+        assignedby.setText("", TextView.BufferType.EDITABLE);
+
+
          /*mRPNameEditText.setText("", TextView.BufferType.EDITABLE);
         mRPDescEditText.setText("", TextView.BufferType.EDITABLE);
         mDurationEditText.setText("", TextView.BufferType.EDITABLE);
@@ -181,6 +190,14 @@ public class ScheduleScreen extends AppCompatActivity {
         this.pr2edit = pr2edit;
         if (pr2edit != null) {
             //TODO Need to change to fix the edit schedule as per required.
+
+            rpTextView.setText(pr2edit.getRadioProgramName(), TextView.BufferType.EDITABLE);
+            producerTextView.setText(pr2edit.getProducer(), TextView.BufferType.EDITABLE);
+            PresenterTextView.setText(pr2edit.getPresenter(), TextView.BufferType.EDITABLE);
+            mdateofprogram.setText(pr2edit.getDateOfProgram(), TextView.BufferType.EDITABLE);
+            mduration.setText(pr2edit.getDuration(), TextView.BufferType.EDITABLE);
+            starttime.setText(pr2edit.getStartTime(), TextView.BufferType.EDITABLE);
+            assignedby.setText(pr2edit.getAssignedBy(), TextView.BufferType.EDITABLE);
 
             /*mRPNameEditText.setText(rp2edit.getRadioProgramName(), TextView.BufferType.NORMAL);
             mRPDescEditText.setText(rp2edit.getRadioProgramDescription(), TextView.BufferType.EDITABLE);
