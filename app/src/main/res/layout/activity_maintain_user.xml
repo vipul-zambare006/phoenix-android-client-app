@@ -22,13 +22,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="password"
+
         tools:text="password" />
 
     <EditText
         android:id="@+id/user_password_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="User Description " />
+        android:inputType="textPassword"
+        tools:text="User Password" />
 
     <TextView
         android:layout_width="match_parent"

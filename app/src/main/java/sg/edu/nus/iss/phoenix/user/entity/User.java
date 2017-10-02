@@ -6,14 +6,30 @@ package sg.edu.nus.iss.phoenix.user.entity;
 
 public class User {
 
+    private String id;
     private String userName;
-    private String userDescription;
+    private String password;
     private String userRole;
 
-    public User(String userName, String userDescription, String userRole) {
+    public User(String id, String userName,  String password, String userRole) {
+        this.id = id;
         this.userName = userName;
-        this.userDescription = userDescription;
+        this.password = password;
         this.userRole = userRole;
+    }
+
+    public User(String id, String userName, String userRole) {
+        this.id = id;
+        this.userName = userName;
+        this.userRole = userRole;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -24,12 +40,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserDescription() {
-        return userDescription;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserDescription(String userDescription) {
-        this.userDescription = userDescription;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserRole() {

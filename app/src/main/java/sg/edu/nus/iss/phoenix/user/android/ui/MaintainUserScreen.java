@@ -23,7 +23,6 @@ public class MaintainUserScreen extends AppCompatActivity {
     private static final String TAG = MaintainProgramScreen.class.getName();
     KeyListener userNameEditTextKeyListener = null;
     private EditText userNameEditText;
-    private EditText userDescEditText;
     private EditText userRoleEditText;
     private EditText userPasswordEditText;
     private User useredit = null;
@@ -35,7 +34,7 @@ public class MaintainUserScreen extends AppCompatActivity {
 
         // Find all relevant views that we will need to read user input from
         userNameEditText = (EditText) findViewById(R.id.user_name_text_view);
-        userDescEditText = (EditText) findViewById(R.id.user_password_text_view);
+        userPasswordEditText = (EditText) findViewById(R.id.user_password_text_view);
         userRoleEditText = (EditText) findViewById(R.id.user_role_text_view);
         // Keep the KeyListener for name EditText so as to enable editing after disabling it.
         userNameEditTextKeyListener = userNameEditText.getKeyListener();
@@ -74,12 +73,13 @@ public class MaintainUserScreen extends AppCompatActivity {
             case R.id.user_action_save:
                 // Save user.
                 if (useredit == null) { // Newly created.
-                    User user = new User(userNameEditText.getText().toString(),
-                            userDescEditText.getText().toString(), userRoleEditText.getText().toString());
+                    User user = new User(userNameEditText.getText().toString(), userNameEditText.getText().toString(),
+                            userPasswordEditText.getText().toString(), userRoleEditText.getText().toString());
                     ControlFactory.getUserController().selectCreateUser(user);
                 } else { // Edited.
                     //Log.v(TAG, "Saving radio program " + rp2edit.getRadioProgramName() + "...");
-                    useredit.setUserDescription(userDescEditText.getText().toString());
+                    useredit.setUserName(userNameEditText.getText().toString());
+                    useredit.setPassword(userPasswordEditText.getText().toString());
                     useredit.setUserRole(userRoleEditText.getText().toString());
                     ControlFactory.getUserController().selectUpdateUser(useredit);
                 }
@@ -107,7 +107,7 @@ public class MaintainUserScreen extends AppCompatActivity {
     public void createUser() {
         this.useredit = null;
         userNameEditText.setText("", TextView.BufferType.EDITABLE);
-        userDescEditText.setText("", TextView.BufferType.EDITABLE);
+        userPasswordEditText.setText("", TextView.BufferType.EDITABLE);
         userRoleEditText.setText("", TextView.BufferType.EDITABLE);
         userNameEditText.setKeyListener(userNameEditTextKeyListener);
     }
@@ -116,7 +116,7 @@ public class MaintainUserScreen extends AppCompatActivity {
         this.useredit = useredit;
         if (useredit != null) {
             userNameEditText.setText(useredit.getUserName(), TextView.BufferType.NORMAL);
-            userDescEditText.setText(useredit.getUserDescription(), TextView.BufferType.EDITABLE);
+            userPasswordEditText.setText(useredit.getPassword(), TextView.BufferType.EDITABLE);
             userRoleEditText.setText(useredit.getUserRole(), TextView.BufferType.EDITABLE);
             userNameEditText.setKeyListener(null);
         }
