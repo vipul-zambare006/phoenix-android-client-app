@@ -48,7 +48,6 @@
         <activity android:name=".user.android.ui.MaintainUserScreen" />
         <activity android:name=".user.android.ui.UserScreen" />
 
-
     </application>
 
 </manifest>

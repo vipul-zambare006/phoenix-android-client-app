@@ -27,9 +27,9 @@ public class ScheduleScreen extends AppCompatActivity {
     private static final String TAG = ScheduleScreen.class.getName();
     String duration = null;
     private Button radio_program, presenter_producer;
-    private EditText mDate;
-    private EditText mTime;
-    private TextView rpTextView, producerTextView, PresenterTextViewl;
+    private EditText mdateofprogram;
+    private EditText mduration, starttime, assignedby;
+    private TextView rpTextView, producerTextView, PresenterTextView;
     private ProgramSlot pr2edit = null;
 
     // KeyListener mPSNameEDitTextKeyListner = null;
@@ -39,10 +39,14 @@ public class ScheduleScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_maintain_schedule);
         rpTextView = (TextView) findViewById(R.id.maintain_schedule_selected_programName_text_view);
+        producerTextView = (TextView) findViewById(R.id.maintain_schedule_selected_producer_text_view);
+        PresenterTextView = (TextView) findViewById(R.id.maintain_schedule_selected_Presenter_text_view);
         radio_program = (Button) findViewById(R.id.programName);
         presenter_producer = (Button) findViewById(R.id.presenter_producer);
-        mDate = (EditText) findViewById(R.id.maintain_schedule_date_text_view);
-        mTime = (EditText) findViewById(R.id.maintain_schedule_time_text_view);
+        mdateofprogram = (EditText) findViewById(R.id.maintain_schedule_date_text_view);
+        mduration = (EditText) findViewById(R.id.maintain_duration_time_text_view);
+        starttime = (EditText) findViewById(R.id.maintain_start_time_text_view);
+        assignedby = (EditText) findViewById(R.id.maintain_AssignedBy_text_view);
 
         // rpTextView.setText(radioProgramName);
 
@@ -118,9 +122,7 @@ public class ScheduleScreen extends AppCompatActivity {
                     // Newly created.
                     Log.v(TAG, "Saving Program Slot" + rpTextView.getText().toString() + "...");
 
-                    ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(),
-                            "Presenter", "Producer", "assignedBy", "duration", "2017-09-20 12:11:04",
-                            "15:00:00");
+                    ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(), PresenterTextView.getText().toString(), producerTextView.getText().toString(), assignedby.getText().toString(), mduration.getText().toString(), starttime.getText().toString(), mdateofprogram.getText().toString());
                     ControlFactory.getScheduleController().selectCreateSchedule(ps);
 
                 } else { // Edited.
