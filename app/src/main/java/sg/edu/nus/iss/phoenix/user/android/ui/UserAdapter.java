@@ -31,7 +31,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.activity_maintain_user, parent, false);
+                    R.layout.activity_list_user, parent, false);
         }
         //    Word currentWord = getItem(position);
         User currentuser = getItem(position);
@@ -40,9 +40,9 @@ public class UserAdapter extends ArrayAdapter<User> {
         userName.setText(currentuser.getUserName(), TextView.BufferType.NORMAL);
         userName.setKeyListener(null); // This disables editing.
 
-        EditText userDesc = (EditText) listItemView.findViewById(R.id.user_desc_text_view);
-        userDesc.setText(currentuser.getUserDescription(), TextView.BufferType.NORMAL);
-        userDesc.setKeyListener(null);
+//        EditText userDesc = (EditText) listItemView.findViewById(R.id.user_password_text_view);
+//        userDesc.setText(currentuser.getUserDescription(), TextView.BufferType.NORMAL);
+//        userDesc.setKeyListener(null);
 
         EditText userRole = (EditText) listItemView.findViewById(R.id.user_role_text_view);
         userRole.setText(currentuser.getUserRole(), TextView.BufferType.NORMAL);

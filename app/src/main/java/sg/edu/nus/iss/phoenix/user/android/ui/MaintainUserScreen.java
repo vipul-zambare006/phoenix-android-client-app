@@ -25,6 +25,7 @@ public class MaintainUserScreen extends AppCompatActivity {
     private EditText userNameEditText;
     private EditText userDescEditText;
     private EditText userRoleEditText;
+    private EditText userPasswordEditText;
     private User useredit = null;
 
     @Override
@@ -34,7 +35,7 @@ public class MaintainUserScreen extends AppCompatActivity {
 
         // Find all relevant views that we will need to read user input from
         userNameEditText = (EditText) findViewById(R.id.user_name_text_view);
-        userDescEditText = (EditText) findViewById(R.id.user_desc_text_view);
+        userDescEditText = (EditText) findViewById(R.id.user_password_text_view);
         userRoleEditText = (EditText) findViewById(R.id.user_role_text_view);
         // Keep the KeyListener for name EditText so as to enable editing after disabling it.
         userNameEditTextKeyListener = userNameEditText.getKeyListener();

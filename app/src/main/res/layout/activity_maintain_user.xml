@@ -21,11 +21,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"
-        tools:text="Description" />
+        android:text="password"
+        tools:text="password" />
 
     <EditText
-        android:id="@+id/user_desc_text_view"
+        android:id="@+id/user_password_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="User Description " />
