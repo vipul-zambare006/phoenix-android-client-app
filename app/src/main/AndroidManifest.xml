@@ -47,6 +47,7 @@
         <activity android:name=".maintainschedule.android.ui.ReviewSelectScheduledProgramScreen" />
         <activity android:name=".user.android.ui.MaintainUserScreen" />
         <activity android:name=".user.android.ui.UserScreen" />
+        <activity android:name=".user.android.ui.ReviewSelectPresenterProducerScreen" />
 
 
     </application>
