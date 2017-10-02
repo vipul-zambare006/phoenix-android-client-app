@@ -50,9 +50,7 @@ public class UserScreen extends AppCompatActivity {
         userListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                // Log.v(TAG, "Radio program at position " + position + " selected.");
                 User user = (User) adapterView.getItemAtPosition(position);
-                // Log.v(TAG, "Radio program name is " + rp.getRadioProgramName());
                 selecteduser = user;
             }
 
@@ -87,11 +85,8 @@ public class UserScreen extends AppCompatActivity {
             // Respond to a click on the "View" menu option
             case R.id.userlist_action_view:
                 if (selecteduser == null) {
-                    // Prompt for the selection of a radio program.
                     Toast.makeText(this, "Select a radio program first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
-                    //Log.v(TAG, "There is no selected radio program.");
                 } else {
-                    // Log.v(TAG, "Viewing radio program: " + selectedRP.getRadioProgramName() + "...");
                     ControlFactory.getUserController().selectEditUser(selecteduser);
                 }
         }

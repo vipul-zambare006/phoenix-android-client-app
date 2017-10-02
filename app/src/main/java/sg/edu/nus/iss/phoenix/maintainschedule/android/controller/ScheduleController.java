@@ -81,7 +81,7 @@ public class ScheduleController {
     }
 
     public void selectDeleteSchedule(ProgramSlot pr) {
-        new DeleteScheduleDelegate(this).execute(pr.getRadioProgramName());
+        new DeleteScheduleDelegate(this).execute(pr);
     }
 
     public void scheduleDeleted(boolean success) {

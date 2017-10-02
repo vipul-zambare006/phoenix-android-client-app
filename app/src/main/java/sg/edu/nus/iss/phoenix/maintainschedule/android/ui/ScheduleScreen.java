@@ -90,6 +90,8 @@ public class ScheduleScreen extends AppCompatActivity {
                 String radioProgramName = data.getStringExtra("radioProgramName");
                 duration = data.getStringExtra("duration");
                 rpTextView.setText(radioProgramName);
+
+
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
@@ -175,11 +177,10 @@ public class ScheduleScreen extends AppCompatActivity {
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.action_delete:
-                //TODO Change the below log Statement.
-
-                //Log.v(TAG, "Deleting radio program " + rp2edit.getRadioProgramName() + "...");
+                Log.v(TAG, "Deleting program slot " + pr2edit.getRadioProgramName() + "...");
                 ControlFactory.getScheduleController().selectDeleteSchedule(pr2edit);
                 return true;
+
             // Respond to a click on the "Cancel" menu option
             case R.id.action_cancel:
 

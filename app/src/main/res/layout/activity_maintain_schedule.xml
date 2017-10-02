@@ -84,17 +84,20 @@
 
         <TextView
             android:id="@+id/maintain_schedule_selected_presenter_text_view"
+        <TextView
+            android:id="@+id/maintain_schedule_selected_Presenter_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selected Presenter"
-            tools:text="Selected Radio Program" />
+            android:text=""
+            tools:text="Selected Presenter" />
 
         <TextView
             android:id="@+id/maintain_schedule_selected_producer_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selected Producer"
-            tools:text="Selected Radio Program" />
+            android:padding="8dp"
+            android:text=""
+            tools:text="Selected Producer" />
 
         <TextView
             android:layout_width="match_parent"
@@ -127,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="18"
                 android:text=""
                 tools:text="Duration" />
         </LinearLayout>
@@ -149,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="18"
                 android:text=""
                 tools:text="start_time" />
         </LinearLayout>
@@ -171,7 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="18"
                 android:text=""
                 tools:text="assignedby" />
         </LinearLayout>
