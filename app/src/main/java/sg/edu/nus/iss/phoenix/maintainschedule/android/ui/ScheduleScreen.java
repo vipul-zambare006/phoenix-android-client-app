@@ -17,6 +17,7 @@ import sg.edu.nus.iss.phoenix.R;
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
 import sg.edu.nus.iss.phoenix.radioprogram.android.ui.ReviewSelectProgramScreen;
+import sg.edu.nus.iss.phoenix.user.android.ui.ReviewSelectPresenterProducerScreen;
 
 /**
  * Created by Gaurav on 26-09-2017.
@@ -26,10 +27,10 @@ public class ScheduleScreen extends AppCompatActivity {
     // Tag for logging
     private static final String TAG = ScheduleScreen.class.getName();
     String duration = null;
-    private Button radio_program, presenter_producer;
+    private Button radio_program, presenter, producer;
     private EditText mdateofprogram;
     private EditText mduration, starttime, assignedby;
-    private TextView rpTextView, producerTextView, PresenterTextView;
+    private TextView rpTextView, producerTextView, presenterTextView;
     private ProgramSlot pr2edit = null;
 
     // KeyListener mPSNameEDitTextKeyListner = null;
@@ -40,9 +41,10 @@ public class ScheduleScreen extends AppCompatActivity {
         setContentView(R.layout.activity_maintain_schedule);
         rpTextView = (TextView) findViewById(R.id.maintain_schedule_selected_programName_text_view);
         producerTextView = (TextView) findViewById(R.id.maintain_schedule_selected_producer_text_view);
-        PresenterTextView = (TextView) findViewById(R.id.maintain_schedule_selected_Presenter_text_view);
+        presenterTextView = (TextView) findViewById(R.id.maintain_schedule_selected_presenter_text_view);
         radio_program = (Button) findViewById(R.id.programName);
-        presenter_producer = (Button) findViewById(R.id.presenter_producer);
+        presenter = (Button) findViewById(R.id.Selectpresenter);
+        producer = (Button) findViewById(R.id.Selectproducer);
         mdateofprogram = (EditText) findViewById(R.id.maintain_schedule_date_text_view);
         mduration = (EditText) findViewById(R.id.maintain_duration_time_text_view);
         starttime = (EditText) findViewById(R.id.maintain_start_time_text_view);
@@ -55,6 +57,22 @@ public class ScheduleScreen extends AppCompatActivity {
 
                 Intent input = new Intent(v.getContext(), ReviewSelectProgramScreen.class);
                 startActivityForResult(input, 1);
+            }
+        });
+
+        presenter.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent input = new Intent(v.getContext(), ReviewSelectPresenterProducerScreen.class);
+                startActivityForResult(input, 2);
+            }
+        });
+
+        producer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent input = new Intent(v.getContext(), ReviewSelectPresenterProducerScreen.class);
+                startActivityForResult(input, 3);
             }
         });
 
@@ -72,13 +90,33 @@ public class ScheduleScreen extends AppCompatActivity {
                 String radioProgramName = data.getStringExtra("radioProgramName");
                 duration = data.getStringExtra("duration");
                 rpTextView.setText(radioProgramName);
-
-
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
         }
+        if (requestCode == 2) {
+            if (resultCode == Activity.RESULT_OK) {
+                String presenterName = data.getStringExtra("presenterName");
+
+                presenterTextView.setText(presenterName);
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+
+        if (requestCode == 3) {
+            if (resultCode == Activity.RESULT_OK) {
+                String producerName = data.getStringExtra("producerName");
+
+                producerTextView.setText(producerName);
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+
     } //onActivityResult
 
     @Override
@@ -122,7 +160,7 @@ public class ScheduleScreen extends AppCompatActivity {
                     // Newly created.
                     Log.v(TAG, "Saving Program Slot" + rpTextView.getText().toString() + "...");
 
-                    ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(), PresenterTextView.getText().toString(), producerTextView.getText().toString(), assignedby.getText().toString(), mduration.getText().toString(), starttime.getText().toString(), mdateofprogram.getText().toString());
+                    ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(), presenterTextView.getText().toString(), producerTextView.getText().toString(), assignedby.getText().toString(), mduration.getText().toString(), starttime.getText().toString(), mdateofprogram.getText().toString());
                     ControlFactory.getScheduleController().selectCreateSchedule(ps);
 
                 } else { // Edited.
@@ -173,7 +211,7 @@ public class ScheduleScreen extends AppCompatActivity {
 
         rpTextView.setText("", TextView.BufferType.EDITABLE);
         producerTextView.setText("", TextView.BufferType.EDITABLE);
-        PresenterTextView.setText("", TextView.BufferType.EDITABLE);
+        presenterTextView.setText("", TextView.BufferType.EDITABLE);
         mdateofprogram.setText("", TextView.BufferType.EDITABLE);
         mduration.setText("", TextView.BufferType.EDITABLE);
         starttime.setText("", TextView.BufferType.EDITABLE);
@@ -193,7 +231,7 @@ public class ScheduleScreen extends AppCompatActivity {
 
             rpTextView.setText(pr2edit.getRadioProgramName(), TextView.BufferType.EDITABLE);
             producerTextView.setText(pr2edit.getProducer(), TextView.BufferType.EDITABLE);
-            PresenterTextView.setText(pr2edit.getPresenter(), TextView.BufferType.EDITABLE);
+            presenterTextView.setText(pr2edit.getPresenter(), TextView.BufferType.EDITABLE);
             mdateofprogram.setText(pr2edit.getDateOfProgram(), TextView.BufferType.EDITABLE);
             mduration.setText(pr2edit.getDuration(), TextView.BufferType.EDITABLE);
             starttime.setText(pr2edit.getStartTime(), TextView.BufferType.EDITABLE);
