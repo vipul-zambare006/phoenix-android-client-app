@@ -51,6 +51,7 @@ public class ScheduleController {
         ControlFactory.getReviewSelectProgramController().startUseCase();
     }
 
+
     public void selectEditSchedule(ProgramSlot programSlot) {
         pr2edit = programSlot;
         //  Log.v(TAG, "Editing Schedule: " + programSlot.getSchedule() + "...");

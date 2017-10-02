@@ -49,7 +49,6 @@
         <activity android:name=".user.android.ui.UserScreen" />
         <activity android:name=".user.android.ui.ReviewSelectPresenterProducerScreen" />
 
-
     </application>
 
 </manifest>
