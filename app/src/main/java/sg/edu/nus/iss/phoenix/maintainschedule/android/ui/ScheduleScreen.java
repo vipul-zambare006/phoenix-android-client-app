@@ -33,7 +33,7 @@ public class ScheduleScreen extends AppCompatActivity {
     private TextView rpTextView, producerTextView, presenterTextView;
     private ProgramSlot pr2edit = null;
 
-    // KeyListener mPSNameEDitTextKeyListner = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,6 @@ public class ScheduleScreen extends AppCompatActivity {
         starttime = (EditText) findViewById(R.id.maintain_start_time_text_view);
         assignedby = (EditText) findViewById(R.id.maintain_AssignedBy_text_view);
 
-        // rpTextView.setText(radioProgramName);
 
         radio_program.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -76,11 +75,6 @@ public class ScheduleScreen extends AppCompatActivity {
             }
         });
 
-        /*presenter_producer.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-            }
-        });*/
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -165,9 +159,7 @@ public class ScheduleScreen extends AppCompatActivity {
                     ControlFactory.getScheduleController().selectCreateSchedule(ps);
 
                 } else { // Edited.
-                    //TODO Change the below Log Statement
 
-                    //Log.v(TAG, "Saving radio program " + rp2edit.getRadioProgramName() + "...");
                     Log.v(TAG, "Updating program slot " + pr2edit.getRadioProgramName() + "...");
 
                     pr2edit.setProducer(producerTextView.getText().toString());
@@ -193,16 +185,7 @@ public class ScheduleScreen extends AppCompatActivity {
                 Log.v(TAG, "Canceling creating/editing Program slot ...");
                 ControlFactory.getScheduleController().selectCancelCreateEditSchedule();
                 return true;
-
-            case R.id.action_copy:
-
-                Log.v(TAG, "Copying Program slot ...");
-
-                //ControlFactory.getScheduleController().selectCancelCreateEditSchedule();
-
-                return true;
         }
-
         return true;
     }
 
@@ -214,7 +197,6 @@ public class ScheduleScreen extends AppCompatActivity {
 
     public void createSchedule() {
         this.pr2edit = null;
-        // TODO Change the Following to perform Create Operation.
 
         rpTextView.setText("", TextView.BufferType.EDITABLE);
         producerTextView.setText("", TextView.BufferType.EDITABLE);
@@ -229,7 +211,6 @@ public class ScheduleScreen extends AppCompatActivity {
     public void editSchedule(ProgramSlot pr2edit) {
         this.pr2edit = pr2edit;
         if (pr2edit != null) {
-            //TODO Need to change to fix the edit schedule as per required.
 
             rpTextView.setText(pr2edit.getRadioProgramName(), TextView.BufferType.EDITABLE);
             producerTextView.setText(pr2edit.getProducer(), TextView.BufferType.EDITABLE);
@@ -240,8 +221,6 @@ public class ScheduleScreen extends AppCompatActivity {
             starttime.setText(pr2edit.getStartTime(), TextView.BufferType.NORMAL);
             starttime.setEnabled(false);
             assignedby.setText(pr2edit.getAssignedBy(), TextView.BufferType.EDITABLE);
-
-
         }
     }
 }

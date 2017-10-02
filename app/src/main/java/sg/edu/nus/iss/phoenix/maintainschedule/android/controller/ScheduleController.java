@@ -54,16 +54,8 @@ public class ScheduleController {
 
     public void selectEditSchedule(ProgramSlot programSlot) {
         pr2edit = programSlot;
-        //  Log.v(TAG, "Editing Schedule: " + programSlot.getSchedule() + "...");
-
 
         Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
-/*        Bundle b = new Bundle();
-        b.putString("Name", radioProgram.getRadioProgramName());
-        b.putString("Description", radioProgram.getRadioProgramDescription());
-        b.putString("Duration", radioProgram.getRadioProgramDuration());
-        intent.putExtras(b);
-*/
         MainController.displayScreen(intent);
     }
 
