@@ -69,7 +69,6 @@ public class ScheduleController {
 
     public void onDisplaySchedule(ScheduleScreen scheduleScreen) {
         this.scheduleScreen = scheduleScreen;
-
         if (pr2edit == null)
             scheduleScreen.createSchedule();
         else

@@ -58,6 +58,7 @@ public class UpdateScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean
             Log.v(TAG, e.getMessage());
         }
 
+
         boolean success = false;
         HttpURLConnection httpURLConnection = null;
         DataOutputStream dos = null;
