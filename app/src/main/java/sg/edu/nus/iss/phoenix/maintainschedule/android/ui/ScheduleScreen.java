@@ -41,7 +41,7 @@ public class ScheduleScreen extends AppCompatActivity {
         setContentView(R.layout.activity_maintain_schedule);
         rpTextView = (TextView) findViewById(R.id.maintain_schedule_selected_programName_text_view);
         producerTextView = (TextView) findViewById(R.id.maintain_schedule_selected_producer_text_view);
-        presenterTextView = (TextView) findViewById(R.id.maintain_schedule_selected_presenter_text_view);
+        presenterTextView = (TextView) findViewById(R.id.maintain_schedule_selected_Presenter_text_view);
         radio_program = (Button) findViewById(R.id.programName);
         presenter = (Button) findViewById(R.id.Selectpresenter);
         producer = (Button) findViewById(R.id.Selectproducer);

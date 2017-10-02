@@ -83,8 +83,6 @@
             tools:text="Selected Radio Program" />
 
         <TextView
-            android:id="@+id/maintain_schedule_selected_presenter_text_view"
-        <TextView
             android:id="@+id/maintain_schedule_selected_Presenter_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
