@@ -47,11 +47,11 @@ public class UpdateScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean
 
         JSONObject json = new JSONObject();
         try {
-            json.put("radioProgramName", params[0].getRadioProgramName());
-            json.put("presenter", params[0].getPresenter());
-            json.put("producer", params[0].getProducer());
-            json.put("assignedBy", params[0].getAssignedBy());
+            json.put("radioProgramId", params[0].getRadioProgramName());
             json.put("dateOfProgram", params[0].getDateOfProgram());
+            json.put("presenterId", params[0].getPresenter());
+            json.put("producerId", params[0].getProducer());
+            json.put("assignedBy", params[0].getAssignedBy());
             json.put("startTime", params[0].getStartTime());
             json.put("duration", params[0].getDuration());
         } catch (JSONException e) {

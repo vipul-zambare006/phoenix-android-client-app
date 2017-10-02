@@ -62,14 +62,14 @@
             android:text="Selected Radio Program"
             tools:text="Selected Radio Program" />
 
-        <EditText
+        <TextView
             android:id="@+id/maintain_schedule_selected_Presenter_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
             tools:text="Selected Presenter" />
 
-        <EditText
+        <TextView
             android:id="@+id/maintain_schedule_selected_producer_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="18"
                 android:text=""
                 tools:text="Duration" />
         </LinearLayout>
@@ -130,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="18"
                 android:text=""
                 tools:text="start_time" />
         </LinearLayout>
@@ -152,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="18"
                 android:text=""
                 tools:text="assignedby" />
         </LinearLayout>

@@ -99,9 +99,6 @@ public class ScheduleScreen extends AppCompatActivity {
      * This method is called after invalidateOptionsMenu(), so that the
      * menu can be updated (some menu items can be hidden or made visible).
      */
-    //TODO need to check and uncomment the  following
-
-    /*@Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         // If this is a new program slot , hide the "Delete" menu item.
@@ -110,7 +107,7 @@ public class ScheduleScreen extends AppCompatActivity {
             menuItem.setVisible(false);
         }
         return true;
-    }*/
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -118,12 +115,10 @@ public class ScheduleScreen extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
-
                 // Save  ProgramSlot .
                 if (pr2edit == null) {
                     // Newly created.
                     Log.v(TAG, "Saving Program Slot" + rpTextView.getText().toString() + "...");
-
                     ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(), PresenterTextView.getText().toString(), producerTextView.getText().toString(), assignedby.getText().toString(), mduration.getText().toString(), starttime.getText().toString(), mdateofprogram.getText().toString());
                     ControlFactory.getScheduleController().selectCreateSchedule(ps);
 
@@ -140,12 +135,10 @@ public class ScheduleScreen extends AppCompatActivity {
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.action_delete:
-                //TODO Change the below log Statement.
-
-
                 Log.v(TAG, "Deleting program slot " + pr2edit.getRadioProgramName() + "...");
                 ControlFactory.getScheduleController().selectDeleteSchedule(pr2edit);
                 return true;
+
             // Respond to a click on the "Cancel" menu option
             case R.id.action_cancel:
 
