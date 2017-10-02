@@ -78,7 +78,7 @@ public class UserController {
 
     public void onDisplayUserList(UserScreen userScreen) {
         this.userScreen = userScreen;
-        new RetrieveUserDelegate(this).execute("getusers");
+        new RetrieveUserDelegate(this).execute("all");
     }
 
     public void userDeleted(boolean success) {
