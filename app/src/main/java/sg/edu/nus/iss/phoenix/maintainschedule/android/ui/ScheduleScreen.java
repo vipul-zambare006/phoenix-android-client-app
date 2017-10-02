@@ -99,7 +99,9 @@ public class ScheduleScreen extends AppCompatActivity {
      * This method is called after invalidateOptionsMenu(), so that the
      * menu can be updated (some menu items can be hidden or made visible).
      */
-    @Override
+    //TODO need to check and uncomment the  following
+
+    /*@Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         // If this is a new program slot , hide the "Delete" menu item.
@@ -108,7 +110,7 @@ public class ScheduleScreen extends AppCompatActivity {
             menuItem.setVisible(false);
         }
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -127,10 +129,11 @@ public class ScheduleScreen extends AppCompatActivity {
 
                 } else { // Edited.
                     //TODO Change the below Log Statement
-
-                    //Log.v(TAG, "Saving radio program " + rp2edit.getRadioProgramName() + "...");
-                    //rp2edit.setRadioProgramDescription(mRPDescEditText.getText().toString());
-                    //rp2edit.setRadioProgramDuration(mDurationEditText.getText().toString());
+                    Log.v(TAG, "Editing  program slot " + pr2edit.getRadioProgramName() + "...");
+                    pr2edit.setDateOfProgram(mdateofprogram.getText().toString());
+                    pr2edit.setPresenter(PresenterTextView.getText().toString());
+                    pr2edit.setProducer(producerTextView.getText().toString());
+                    pr2edit.setStartTime(starttime.getText().toString());
 
                     ControlFactory.getScheduleController().selectUpdateSchedule(pr2edit);
                 }
@@ -139,7 +142,8 @@ public class ScheduleScreen extends AppCompatActivity {
             case R.id.action_delete:
                 //TODO Change the below log Statement.
 
-                //Log.v(TAG, "Deleting radio program " + rp2edit.getRadioProgramName() + "...");
+
+                Log.v(TAG, "Deleting program slot " + pr2edit.getRadioProgramName() + "...");
                 ControlFactory.getScheduleController().selectDeleteSchedule(pr2edit);
                 return true;
             // Respond to a click on the "Cancel" menu option
@@ -171,10 +175,14 @@ public class ScheduleScreen extends AppCompatActivity {
         this.pr2edit = null;
         // TODO Change the Following to perform Create Operation.
 
-         /*mRPNameEditText.setText("", TextView.BufferType.EDITABLE);
-        mRPDescEditText.setText("", TextView.BufferType.EDITABLE);
-        mDurationEditText.setText("", TextView.BufferType.EDITABLE);
-        mRPNameEditText.setKeyListener(mRPNameEditTextKeyListener);*/
+        rpTextView.setText("", TextView.BufferType.EDITABLE);
+        producerTextView.setText("", TextView.BufferType.EDITABLE);
+        PresenterTextView.setText("", TextView.BufferType.EDITABLE);
+        mdateofprogram.setText("", TextView.BufferType.EDITABLE);
+        mduration.setText("", TextView.BufferType.EDITABLE);
+        starttime.setText("", TextView.BufferType.EDITABLE);
+        assignedby.setText("", TextView.BufferType.EDITABLE);
+
     }
 
     public void editSchedule(ProgramSlot pr2edit) {
@@ -182,10 +190,14 @@ public class ScheduleScreen extends AppCompatActivity {
         if (pr2edit != null) {
             //TODO Need to change to fix the edit schedule as per required.
 
-            /*mRPNameEditText.setText(rp2edit.getRadioProgramName(), TextView.BufferType.NORMAL);
-            mRPDescEditText.setText(rp2edit.getRadioProgramDescription(), TextView.BufferType.EDITABLE);
-            mDurationEditText.setText(rp2edit.getRadioProgramDuration(), TextView.BufferType.EDITABLE);
-            mRPNameEditText.setKeyListener(null);*/
+            rpTextView.setText(pr2edit.getRadioProgramName(), TextView.BufferType.EDITABLE);
+            producerTextView.setText(pr2edit.getProducer(), TextView.BufferType.EDITABLE);
+            PresenterTextView.setText(pr2edit.getPresenter(), TextView.BufferType.EDITABLE);
+            mdateofprogram.setText(pr2edit.getDateOfProgram(), TextView.BufferType.EDITABLE);
+            mduration.setText(pr2edit.getDuration(), TextView.BufferType.EDITABLE);
+            starttime.setText(pr2edit.getStartTime(), TextView.BufferType.EDITABLE);
+            assignedby.setText(pr2edit.getAssignedBy(), TextView.BufferType.EDITABLE);
+
         }
     }
 }
