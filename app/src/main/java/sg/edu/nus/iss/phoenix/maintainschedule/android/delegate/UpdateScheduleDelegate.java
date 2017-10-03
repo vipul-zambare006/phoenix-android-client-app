@@ -23,7 +23,6 @@ import static sg.edu.nus.iss.phoenix.core.android.delegate.DelegateHelper.PRMS_B
  */
 
 public class UpdateScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean> {
-    // Tag for logging
     private static final String TAG = sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.UpdateScheduleDelegate.class.getName();
 
     private final ScheduleController scheduleController;

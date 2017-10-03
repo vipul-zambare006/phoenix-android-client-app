@@ -47,10 +47,7 @@ public class ReviewSelectPresenterProducerScreen extends AppCompatActivity {
         mListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                // Log.v(TAG, "PresenterProducer at position " + position + " selected.");
                 User user = (User) adapterView.getItemAtPosition(position);
-
-                // Log.v(TAG, "PresenterProducer name is " + rp.getPresenterProducer());
                 selectedUser = user;
             }
 
@@ -87,18 +84,12 @@ public class ReviewSelectPresenterProducerScreen extends AppCompatActivity {
                 if (selectedUser == null) {
                     // Prompt for the selection of a radio program.
                     Toast.makeText(this, "Select a presenter producer first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
-                    //  Log.v(TAG, "There is no selected radio program.");
                 } else {
-                    ///  Log.v(TAG, "Selected radio program: " + selectedUser.getRadioProgramName() + "...");
-
                     Intent rpintent = new Intent(ReviewSelectPresenterProducerScreen.this, ScheduleScreen.class);
                     rpintent.putExtra("presenterName", selectedUser.getUserName());
                     rpintent.putExtra("producerName", selectedUser.getUserName());
-                    // rpintent.putExtra("duration", selectedUser.getRadioProgramDuration());
                     setResult(Activity.RESULT_OK, rpintent);
                     finish();
-
-                    //ControlFactory.getReviewSelectProgramController().selectProgram(selectedRP);
                 }
         }
 

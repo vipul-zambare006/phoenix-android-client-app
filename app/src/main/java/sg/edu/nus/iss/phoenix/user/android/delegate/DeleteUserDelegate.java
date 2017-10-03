@@ -31,7 +31,6 @@ public class DeleteUserDelegate extends AsyncTask<String, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(String... params) {
-        // Encode the name of User in case of the presence of special characters.
         String name = null;
         try {
             name = URLEncoder.encode(params[0], "UTF-8");

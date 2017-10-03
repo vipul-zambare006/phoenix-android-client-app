@@ -92,7 +92,7 @@ public class ScheduledProgramScreen extends AppCompatActivity {
                     Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
                     Log.v(TAG, "There is no selected program slot.");
                 } else {
-                    Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
+                    // Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
                     //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
                     ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
                 }
@@ -107,7 +107,6 @@ public class ScheduledProgramScreen extends AppCompatActivity {
                     //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
                     //TODO Copy function to be called here
                     selectedPS.setAction("copy");
-                    //ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
                     ControlFactory.getScheduleController().selectCopySchedule(selectedPS);
                 }
 

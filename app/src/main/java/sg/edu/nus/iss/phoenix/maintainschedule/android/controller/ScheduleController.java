@@ -19,8 +19,6 @@ import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
  */
 
 public class ScheduleController {
-
-    //Tag for Logging
     private static final String TAG = ScheduleController.class.getName();
     private ScheduledProgramScreen scheduledProgramScreen;
     private ScheduleScreen scheduleScreen;
@@ -91,12 +89,10 @@ public class ScheduleController {
     }
 
     public void scheduleDeleted(boolean success) {
-        // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
     }
 
     public void scheduleUpdated(boolean success) {
-        // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
     }
 
@@ -105,12 +101,10 @@ public class ScheduleController {
     }
 
     public void scheduleCreated(boolean success) {
-        // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
     }
 
     public void selectCancelCreateEditSchedule() {
-        //  // Go back to Scheduled Program screen with refreshed program slots.
         startUseCase();
     }
 

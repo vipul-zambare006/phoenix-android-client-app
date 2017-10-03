@@ -42,7 +42,7 @@ public class ReviewSelectScheduledProgramScreen extends AppCompatActivity {
                 // Log.v(TAG, "Radio program at position " + position + " selected.");
                 ProgramSlot ps = (ProgramSlot) adapterView.getItemAtPosition(position);
 
-                // Log.v(TAG, "Radio program name is " + rp.getRadioProgramName());
+                // Log.v(TAG, "Radio program name is " + ps.getRadioProgramName());
                 selectedPS = ps;
             }
 

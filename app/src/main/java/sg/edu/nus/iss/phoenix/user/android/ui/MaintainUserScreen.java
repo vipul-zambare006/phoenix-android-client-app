@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.KeyListener;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -32,11 +33,9 @@ public class MaintainUserScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maintain_user);
 
-        // Find all relevant views that we will need to read user input from
         userNameEditText = (EditText) findViewById(R.id.user_name_text_view);
         userPasswordEditText = (EditText) findViewById(R.id.user_password_text_view);
         userRoleEditText = (EditText) findViewById(R.id.user_role_text_view);
-        // Keep the KeyListener for name EditText so as to enable editing after disabling it.
         userNameEditTextKeyListener = userNameEditText.getKeyListener();
     }
 
@@ -48,8 +47,6 @@ public class MaintainUserScreen extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu options from the res/menu/menu_editor.xml file.
-        // This adds menu items to the app bar.
         getMenuInflater().inflate(R.menu.menu_user_editor, menu);
         return true;
     }
@@ -57,7 +54,6 @@ public class MaintainUserScreen extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        // If this is a new radioprogram, hide the "Delete" menu item.
         if (useredit == null) {
             MenuItem menuItem = menu.findItem(R.id.user_action_delete);
             menuItem.setVisible(false);
@@ -67,17 +63,14 @@ public class MaintainUserScreen extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Save" menu option
             case R.id.user_action_save:
-                // Save user.
-                if (useredit == null) { // Newly created.
+                if (useredit == null) {
                     User user = new User(userNameEditText.getText().toString(), userNameEditText.getText().toString(),
                             userPasswordEditText.getText().toString(), userRoleEditText.getText().toString());
                     ControlFactory.getUserController().selectCreateUser(user);
                 } else { // Edited.
-                    //Log.v(TAG, "Saving radio program " + rp2edit.getRadioProgramName() + "...");
+                    Log.v(TAG, "Saving User " + useredit.getUserName() + "...");
                     useredit.setUserName(userNameEditText.getText().toString());
                     useredit.setPassword(userPasswordEditText.getText().toString());
                     useredit.setUserRole(userRoleEditText.getText().toString());
@@ -86,7 +79,6 @@ public class MaintainUserScreen extends AppCompatActivity {
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.user_action_delete:
-                // Log.v(TAG, "Deleting radio program " + rp2edit.getRadioProgramName() + "...");
                 ControlFactory.getUserController().selectDeleteUser(useredit);
                 return true;
             // Respond to a click on the "Cancel" menu option
@@ -100,7 +92,6 @@ public class MaintainUserScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Log.v(TAG, "Canceling creating/editing radio program...");
         ControlFactory.getUserController().selectCancelCreateEditUser();
     }
 

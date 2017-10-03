@@ -85,7 +85,7 @@ public class UserScreen extends AppCompatActivity {
             // Respond to a click on the "View" menu option
             case R.id.userlist_action_view:
                 if (selecteduser == null) {
-                    Toast.makeText(this, "Select a radio program first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Select a user first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
                 } else {
                     ControlFactory.getUserController().selectEditUser(selecteduser);
                 }

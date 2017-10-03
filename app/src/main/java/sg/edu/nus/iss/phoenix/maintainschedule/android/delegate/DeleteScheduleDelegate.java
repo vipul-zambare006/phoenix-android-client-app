@@ -24,7 +24,6 @@ import static sg.edu.nus.iss.phoenix.core.android.delegate.DelegateHelper.PRMS_B
 
 public class DeleteScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean> {
 
-    // Tag for logging
     private static final String TAG = sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.DeleteScheduleDelegate.class.getName();
 
     private final ScheduleController scheduleController;
@@ -35,8 +34,6 @@ public class DeleteScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean
 
     @Override
     protected Boolean doInBackground(ProgramSlot... params) {
-        // Encode the name of radio program in case of the presence of special characters.
-
         Uri builtUri = Uri.parse(PRMS_BASE_URL_MaintainSchedule).buildUpon().build();
         builtUri = Uri.withAppendedPath(builtUri, "delete").buildUpon().build();
         Log.v(TAG, builtUri.toString());

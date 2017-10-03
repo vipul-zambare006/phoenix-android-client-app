@@ -52,8 +52,6 @@ public class ScheduleScreen extends AppCompatActivity {
         starttime = (EditText) findViewById(R.id.maintain_start_time_text_view);
         assignedby = (EditText) findViewById(R.id.maintain_AssignedBy_text_view);
 
-        // rpTextView.setText(radioProgramName);
-
         radio_program.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -77,12 +75,6 @@ public class ScheduleScreen extends AppCompatActivity {
                 startActivityForResult(input, 3);
             }
         });
-
-        /*presenter_producer.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-            }
-        });*/
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -216,12 +208,6 @@ public class ScheduleScreen extends AppCompatActivity {
         mduration.setText("", TextView.BufferType.EDITABLE);
         starttime.setText("", TextView.BufferType.EDITABLE);
         assignedby.setText("", TextView.BufferType.EDITABLE);
-
-
-         /*mRPNameEditText.setText("", TextView.BufferType.EDITABLE);
-        mRPDescEditText.setText("", TextView.BufferType.EDITABLE);
-        mDurationEditText.setText("", TextView.BufferType.EDITABLE);
-        mRPNameEditText.setKeyListener(mRPNameEditTextKeyListener);*/
     }
 
     public void editSchedule(ProgramSlot pr2edit) {
@@ -238,11 +224,6 @@ public class ScheduleScreen extends AppCompatActivity {
             starttime.setText(pr2edit.getStartTime(), TextView.BufferType.NORMAL);
             starttime.setEnabled(false);
             assignedby.setText(pr2edit.getAssignedBy(), TextView.BufferType.EDITABLE);
-
-            /*mRPNameEditText.setText(rp2edit.getRadioProgramName(), TextView.BufferType.NORMAL);
-            mRPDescEditText.setText(rp2edit.getRadioProgramDescription(), TextView.BufferType.EDITABLE);
-            mDurationEditText.setText(rp2edit.getRadioProgramDuration(), TextView.BufferType.EDITABLE);
-            mRPNameEditText.setKeyListener(null);*/
         }
     }
 
@@ -258,11 +239,6 @@ public class ScheduleScreen extends AppCompatActivity {
             mduration.setText("", TextView.BufferType.EDITABLE);
             starttime.setText("", TextView.BufferType.EDITABLE);
             assignedby.setText("", TextView.BufferType.EDITABLE);
-
-            /*mRPNameEditText.setText(rp2edit.getRadioProgramName(), TextView.BufferType.NORMAL);
-            mRPDescEditText.setText(rp2edit.getRadioProgramDescription(), TextView.BufferType.EDITABLE);
-            mDurationEditText.setText(rp2edit.getRadioProgramDuration(), TextView.BufferType.EDITABLE);
-            mRPNameEditText.setKeyListener(null);*/
         }
     }
 }

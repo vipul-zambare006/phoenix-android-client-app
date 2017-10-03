@@ -16,7 +16,6 @@ import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
  */
 
 public class ReviewSelectScheduledController {
-    // Tag for logging.
     private static final String TAG = ReviewSelectScheduledController.class.getName();
 
     private ReviewSelectScheduledProgramScreen reviewSelectScheduledProgramScreen;
@@ -39,10 +38,6 @@ public class ReviewSelectScheduledController {
 
     public void SelectSchedule(ProgramSlot programSlot) {
         prSelected = programSlot;
-
-        //Log.v(TAG, "Selected program slot : " + radioProgram.getRadioProgramName() + ".");
-        // To call the base use case controller with the selected Scheduled program.
-        // At present, call the MainController instead.
         ControlFactory.getMainController().selectedSchedule(prSelected);
 
     }
@@ -51,8 +46,6 @@ public class ReviewSelectScheduledController {
     public void selectCancel() {
         prSelected = null;
         Log.v(TAG, "Cancelled the seleciton of Program Slot.");
-        // To call the base use case controller without selection;
-        // At present, call the MainController instead.
         ControlFactory.getMainController().selectedSchedule(prSelected);
     }
 }

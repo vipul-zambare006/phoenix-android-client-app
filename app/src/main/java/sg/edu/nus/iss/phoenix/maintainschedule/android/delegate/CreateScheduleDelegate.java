@@ -23,7 +23,6 @@ import static sg.edu.nus.iss.phoenix.core.android.delegate.DelegateHelper.PRMS_B
 
 public class CreateScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean> {
 
-    // Tag for logging
     private static final String TAG = CreateScheduleDelegate.class.getName();
 
     private final ScheduleController scheduleController;

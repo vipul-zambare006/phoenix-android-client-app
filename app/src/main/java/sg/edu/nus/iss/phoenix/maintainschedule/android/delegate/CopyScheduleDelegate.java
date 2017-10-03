@@ -27,10 +27,8 @@ import static sg.edu.nus.iss.phoenix.core.android.delegate.DelegateHelper.PRMS_B
  */
 
 public class CopyScheduleDelegate extends AsyncTask<String, Void, String> {
-    // Tag for logging
     private static final String TAG = sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.RetrieveScheduleDelegate.class.getName();
     private ScheduleController scheduleController;
-    //private ReviewSelectScheduledController reviewSelectScheduledController = null;
 
     public CopyScheduleDelegate(ScheduleController scheduleController) {
         this.scheduleController = scheduleController;
@@ -98,7 +96,5 @@ public class CopyScheduleDelegate extends AsyncTask<String, Void, String> {
         if (scheduleController != null) {
             scheduleController.scheduleRetrieved(programSlots);
         }
-
-
     }
 }
