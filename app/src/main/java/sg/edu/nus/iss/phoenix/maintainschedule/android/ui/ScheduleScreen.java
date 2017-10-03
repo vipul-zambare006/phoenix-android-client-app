@@ -54,7 +54,6 @@ public class ScheduleScreen extends AppCompatActivity {
 
         radio_program.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 Intent input = new Intent(v.getContext(), ReviewSelectProgramScreen.class);
                 startActivityForResult(input, 1);
             }
@@ -62,15 +61,15 @@ public class ScheduleScreen extends AppCompatActivity {
 
         presenter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                ControlFactory.getMainController().selectReviewSelectPresenterProducer();
+                Intent input = new Intent(v.getContext(), ReviewSelectPresenterProducerScreen.class);
+                startActivityForResult(input, 2);
             }
         });
 
         producer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                ControlFactory.getMainController().selectReviewSelectPresenterProducer();
+                Intent input = new Intent(v.getContext(), ReviewSelectPresenterProducerScreen.class);
+                startActivityForResult(input, 3);
             }
         });
     }

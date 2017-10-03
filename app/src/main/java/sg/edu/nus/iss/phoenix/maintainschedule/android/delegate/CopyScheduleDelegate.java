@@ -49,7 +49,7 @@ public class CopyScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean> 
             json.put("dateOfProgram", params[0].getDateOfProgram());
             json.put("presenterId", params[0].getPresenter());
             json.put("producerId", params[0].getProducer());
-            json.put("assignedBy", params[0].getAssignedBy());
+            json.put("assignby", params[0].getAssignedBy());
             json.put("startTime", params[0].getStartTime());
             json.put("duration", params[0].getDuration());
 

@@ -39,9 +39,9 @@ public class ScheduleController {
         //new CopyScheduleDelegate(this).execute("copy");
     }
 
-    public void schedulesRetrieved(List<ProgramSlot> programSlots) {
+ /*   public void schedulesRetrieved(List<ProgramSlot> programSlots) {
         scheduledProgramScreen.showSchedules(programSlots);
-    }
+    }*/
 
     public void selectCreateSchedule() {
         pr2edit = null;
