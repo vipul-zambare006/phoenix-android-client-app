@@ -28,23 +28,15 @@ public class ReviewSelectPresenterProducerController {
         MainController.displayScreen(intent);
     }
 
-    public void onDisplay(ReviewSelectPresenterProducerScreen reviewSelectScheduledProgramScreen) {
-        this.reviewSelectPresenterProducerScreen = reviewSelectScheduledProgramScreen;
+    /**
+     * This method will populate the presenter producer list on the screen by fetching the value Object from delegate.
+     *
+     * @param reviewSelectPresenterProducerScreen
+     */
+
+    public void onDisplay(ReviewSelectPresenterProducerScreen reviewSelectPresenterProducerScreen) {
+        this.reviewSelectPresenterProducerScreen = reviewSelectPresenterProducerScreen;
         new RetrievePresenterProducerDelegate(this).execute("presenterproducer");
-    }
-
-    public void scheduleRetrieved(List<User> presenterProducer) {
-        reviewSelectPresenterProducerScreen.showPresenterProducer(presenterProducer);
-    }
-
-    public void SelectSchedule(User presenterProducer) {
-        userSelected = presenterProducer;
-
-        //Log.v(TAG, "Selected program slot : " + radioProgram.getRadioProgramName() + ".");
-        // To call the base use case controller with the selected Scheduled program.
-        // At present, call the MainController instead.
-        ControlFactory.getMainController().selectedUser(userSelected);
-
     }
 
 
@@ -55,6 +47,14 @@ public class ReviewSelectPresenterProducerController {
         // At present, call the MainController instead.
         ControlFactory.getMainController().selectedUser(userSelected);
     }
+
+    /**
+     * This method will provide the retrieved presenter producer value objects from the user Adapter
+     * to bid it with the list view.
+     *
+     * @param user
+     */
+
 
     public void userRetrieved(List<User> user) {
         reviewSelectPresenterProducerScreen.showPresenterProducer(user);

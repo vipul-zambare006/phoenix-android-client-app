@@ -33,6 +33,16 @@ public class UpdateUserDelegate extends AsyncTask<User, Void, Boolean> {
         this.userController = userController;
     }
 
+    /**
+     * Override this method to perform a computation on a background thread.
+     *
+     * @param params The parameters of the task.
+     *
+     * @return A result, defined by the subclass of this task.
+     *
+     *
+     */
+
     @Override
     protected Boolean doInBackground(User... params) {
         Uri builtUri = Uri.parse(PRMS_BASE_URL_USER).buildUpon().build();

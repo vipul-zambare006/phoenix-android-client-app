@@ -36,6 +36,16 @@ public class RetrieveUserDelegate extends AsyncTask<String, Void, String> {
         this.userController = userController;
     }
 
+    /**
+     * Override this method to perform a computation on a background thread.
+     *
+     * @param params The parameters of the task.
+     *
+     * @return A result, defined by the subclass of this task.
+     *
+     *
+     */
+
     @Override
     protected String doInBackground(String... params) {
         Uri builtUri1 = Uri.parse(PRMS_BASE_URL_USER).buildUpon().build();

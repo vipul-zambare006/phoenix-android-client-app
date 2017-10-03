@@ -29,6 +29,16 @@ public class DeleteUserDelegate extends AsyncTask<String, Void, Boolean> {
         this.userController = userController;
     }
 
+    /**
+     * Override this method to perform a computation on a background thread.
+     *
+     * @param params The parameters of the task.
+     *
+     * @return A result, defined by the subclass of this task.
+     *
+     *
+     */
+
     @Override
     protected Boolean doInBackground(String... params) {
         String name = null;

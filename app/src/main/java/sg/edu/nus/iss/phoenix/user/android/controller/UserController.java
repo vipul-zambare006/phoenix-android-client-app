@@ -35,6 +35,13 @@ public class UserController {
         MainController.displayScreen(intent);
     }
 
+    /**
+     * This method will link the Create UI button with the Create User delegate.
+     *
+     * @param user
+     */
+
+
     public void selectCreateUser(User user) {
         new CreateUserDelegate(this).execute(user);
     }
@@ -44,13 +51,31 @@ public class UserController {
         startUseCase();
     }
 
+    /**
+     * This method will link the Edit UI button with the Update User Delegate.
+     *
+     * @param user
+     */
+
     public void selectUpdateUser(User user) {
         new UpdateUserDelegate(this).execute(user);
     }
 
+    /**
+     * This method will link the Delete UI button with the Delete User delegate.
+     *
+     * @param user
+     */
+
     public void selectDeleteUser(User user) {
         new DeleteUserDelegate(this).execute(user.getUserName());
     }
+
+    /**
+     * This method will link the Edit UI button with the Edit User delegate.
+     *
+     * @param user
+     */
 
     public void selectEditUser(User user) {
         useredit = user;
@@ -68,6 +93,12 @@ public class UserController {
         startUseCase();
     }
 
+    /**
+     * This method is used to verify if a new user is being created or is selected from the list view.
+     *
+     * @param maintainUserScreen
+     */
+
     public void onDisplayUser(MaintainUserScreen maintainUserScreen) {
         this.maintainUserScreen = maintainUserScreen;
         if (useredit == null)
@@ -75,6 +106,12 @@ public class UserController {
         else
             maintainUserScreen.editUser(useredit);
     }
+
+    /**
+     * This method is used to verify if a new user is being created or is selected from the list view.
+     *
+     * @param userScreen
+     */
 
     public void onDisplayUserList(UserScreen userScreen) {
         this.userScreen = userScreen;
@@ -85,6 +122,13 @@ public class UserController {
         // Go back to ProgramList screen with refreshed programs.
         startUseCase();
     }
+
+    /**
+     * This method will provide the retrieved presenter producer value objects from the user Adapter
+     * to bid it with the list view.
+     *
+     * @param user
+     */
 
     public void userRetrieved(List<User> user) {
         userScreen.showUsers(user);
