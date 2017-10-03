@@ -63,16 +63,14 @@ public class ScheduleScreen extends AppCompatActivity {
         presenter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent input = new Intent(v.getContext(), ReviewSelectPresenterProducerScreen.class);
-                startActivityForResult(input, 2);
+                ControlFactory.getMainController().selectReviewSelectPresenterProducer();
             }
         });
 
         producer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent input = new Intent(v.getContext(), ReviewSelectPresenterProducerScreen.class);
-                startActivityForResult(input, 3);
+                ControlFactory.getMainController().selectReviewSelectPresenterProducer();
             }
         });
     }
