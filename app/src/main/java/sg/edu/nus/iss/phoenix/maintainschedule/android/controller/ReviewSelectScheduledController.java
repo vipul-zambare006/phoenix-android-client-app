@@ -21,6 +21,7 @@ public class ReviewSelectScheduledController {
     private ReviewSelectScheduledProgramScreen reviewSelectScheduledProgramScreen;
     private ProgramSlot prSelected = null;
 
+
     public void startUseCase() {
         prSelected = null;
         Intent intent = new Intent(MainController.getApp(), ReviewSelectScheduledProgramScreen.class);

@@ -32,7 +32,6 @@ public class CreateUserDelegate extends AsyncTask<User, Void, Boolean> {
     public CreateUserDelegate(UserController userController) {
         this.userController = userController;
     }
-
     /**
      * Override this method to perform a computation on a background thread.
      *

@@ -27,21 +27,30 @@ public class ScheduleController {
     private String copy_string = "copy";
     private String edit_string = "edit";
 
+    /**
+     * This method will start the use case.
+     */
     public void startUseCase() {
         pr2edit = null;
         Intent intent = new Intent(MainController.getApp(), ScheduledProgramScreen.class);
         MainController.displayScreen(intent);
     }
 
+    /**
+     * This method will called to display all the ScheduleProgramList on the scheduled program screen
+     *
+     * @param scheduledProgramScreen
+     */
     public void onDisplayScheduleList(ScheduledProgramScreen scheduledProgramScreen) {
         this.scheduledProgramScreen = scheduledProgramScreen;
         new RetrieveScheduleDelegate(this).execute("all");
         //new CopyScheduleDelegate(this).execute("copy");
     }
 
- /*   public void schedulesRetrieved(List<ProgramSlot> programSlots) {
-        scheduledProgramScreen.showSchedules(programSlots);
-    }*/
+    /**
+     * This method will called to create schedule on call of create from the fab icon
+     * on the scheduledprogramscreen
+     */
 
     public void selectCreateSchedule() {
         pr2edit = null;
@@ -53,12 +62,20 @@ public class ScheduleController {
         ControlFactory.getReviewSelectProgramController().startUseCase();
     }
 
-
+    /**
+     * This method will called to edit the schedule on schedule screen on click of View.
+     * @param programSlot
+     */
     public void selectEditSchedule(ProgramSlot programSlot) {
         pr2edit = programSlot;
         Intent intent = new Intent(MainController.getApp(), ScheduleScreen.class);
         MainController.displayScreen(intent);
     }
+
+    /**
+     * This method will called to copy the selected schedule from the scheduled List screen
+     * @param programSlot
+     */
 
     public void selectCopySchedule(ProgramSlot programSlot) {
         pr2edit = programSlot;
@@ -66,6 +83,10 @@ public class ScheduleController {
         MainController.displayScreen(intent);
     }
 
+    /**
+     * This method will called to check on the schedule screen if user is creating the program slot or editing the slot.
+     * @param scheduleScreen
+     */
     public void onDisplaySchedule(ScheduleScreen scheduleScreen) {
         this.scheduleScreen = scheduleScreen;
         if (pr2edit == null){
@@ -79,16 +100,32 @@ public class ScheduleController {
         }
     }
 
-    public void selectUpdateSchedule(ProgramSlot pr) {
-        new UpdateScheduleDelegate(this).execute(pr);
+    /**
+     * This method will called to update the program slot after edit program slot on click of save
+     *
+     * @param programSlot
+     */
+    public void selectUpdateSchedule(ProgramSlot programSlot) {
+        new UpdateScheduleDelegate(this).execute(programSlot);
     }
 
-    public void selectCopyupdateSchedule(ProgramSlot pr) {
-        new CopyScheduleDelegate(this).execute(pr);
+    /**
+     * This method will called to perform the copy schedule of the program slot after new input after save
+     *
+     * @param programSlot
+     */
+    public void selectCopyupdateSchedule(ProgramSlot programSlot) {
+        new CopyScheduleDelegate(this).execute(programSlot);
     }
 
-    public void selectDeleteSchedule(ProgramSlot pr) {
-        new DeleteScheduleDelegate(this).execute(pr);
+    /**
+     * This method will called to delete the created program slot
+     *
+     * @param programSlot
+     */
+
+    public void selectDeleteSchedule(ProgramSlot programSlot) {
+        new DeleteScheduleDelegate(this).execute(programSlot);
     }
 
     public void scheduleDeleted(boolean success) {

@@ -14,14 +14,7 @@ public class LoginController {
     private LoginScreen loginScreen;
 
     /**
-     * load-method. This will load valueObject contents from database using
-     * Primary-Key as identifier. Upper layer should use this so that
-     * valueObject instance is created and only primary-key should be specified.
-     * Then call this method to complete other persistent information. This
-     * method will overwrite all other fields except primary-key and possible
-     * runtime variables. If load can not find matching row, NotFoundException
-     * will be thrown.
-     *
+     * The Following method is to display the Login Screen to the user.
      * @param loginScreen
      */
     public void onDisplay(LoginScreen loginScreen) {
