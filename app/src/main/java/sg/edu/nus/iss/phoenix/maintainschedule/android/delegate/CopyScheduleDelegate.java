@@ -4,18 +4,14 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 import sg.edu.nus.iss.phoenix.maintainschedule.android.controller.ScheduleController;
 import sg.edu.nus.iss.phoenix.maintainschedule.entity.ProgramSlot;
@@ -26,8 +22,8 @@ import static sg.edu.nus.iss.phoenix.core.android.delegate.DelegateHelper.PRMS_B
  * Created by Gaurav on 13-09-2017.
  */
 
-public class CopyScheduleDelegate extends AsyncTask<String, Void, String> {
-    private static final String TAG = sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.RetrieveScheduleDelegate.class.getName();
+public class CopyScheduleDelegate extends AsyncTask<ProgramSlot, Void, Boolean> {
+    private static final String TAG = CopyScheduleDelegate.class.getName();
     private ScheduleController scheduleController;
 
     public CopyScheduleDelegate(ScheduleController scheduleController) {
@@ -35,66 +31,66 @@ public class CopyScheduleDelegate extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected String doInBackground(String... params) {
-        Uri builtUri1 = Uri.parse(PRMS_BASE_URL_MaintainSchedule).buildUpon().build();
-        Uri builtUri = Uri.withAppendedPath(builtUri1, params[0]).buildUpon().build();
+    protected Boolean doInBackground(ProgramSlot... params) {
+        Uri builtUri = Uri.parse(PRMS_BASE_URL_MaintainSchedule).buildUpon().build();
+        builtUri = Uri.withAppendedPath(builtUri, "copy").buildUpon().build();
         Log.v(TAG, builtUri.toString());
         URL url = null;
         try {
             url = new URL(builtUri.toString());
         } catch (MalformedURLException e) {
             Log.v(TAG, e.getMessage());
-            return e.getMessage();
+            return new Boolean(false);
         }
 
-        String jsonResp = null;
-        HttpURLConnection urlConnection = null;
+        JSONObject json = new JSONObject();
         try {
-            urlConnection = (HttpURLConnection) url.openConnection();
-            InputStream in = urlConnection.getInputStream();
+            json.put("radioProgramId", params[0].getRadioProgramName());
+            json.put("dateOfProgram", params[0].getDateOfProgram());
+            json.put("presenterId", params[0].getPresenter());
+            json.put("producerId", params[0].getProducer());
+            json.put("assignedBy", params[0].getAssignedBy());
+            json.put("startTime", params[0].getStartTime());
+            json.put("duration", params[0].getDuration());
 
-            Scanner scanner = new Scanner(in);
-            scanner.useDelimiter("\\A");
-            if (scanner.hasNext()) jsonResp = scanner.next();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (urlConnection != null) urlConnection.disconnect();
+        } catch (JSONException e) {
+            Log.v(TAG, e.getMessage());
         }
 
-        return jsonResp;
+        boolean success = false;
+        HttpURLConnection httpURLConnection = null;
+        DataOutputStream dos = null;
+        try {
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setInstanceFollowRedirects(false);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=utf8");
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            dos = new DataOutputStream(httpURLConnection.getOutputStream());
+            dos.writeUTF(json.toString());
+            dos.write(256);
+            Log.v(TAG, "Http PUT response " + httpURLConnection.getResponseCode());
+            success = true;
+        } catch (IOException exception) {
+            Log.v(TAG, exception.getMessage());
+        } finally {
+            if (dos != null) {
+                try {
+                    dos.flush();
+                    dos.close();
+                } catch (IOException exception) {
+                    Log.v(TAG, exception.getMessage());
+                }
+            }
+            if (httpURLConnection != null) httpURLConnection.disconnect();
+        }
+        return new Boolean(success);
     }
 
     @Override
-    protected void onPostExecute(String result) {
-        List<ProgramSlot> programSlots = new ArrayList<>();
+    protected void onPostExecute(Boolean result) {
+        scheduleController.scheduleCreated(result.booleanValue());
 
-        if (result != null && !result.equals("")) {
-            try {
-                JSONArray prArray = new JSONArray(result);
-
-                for (int i = 0; i < prArray.length(); i++) {
-                    JSONObject prJson = prArray.getJSONObject(i);
-
-                    String radioProgramName = prJson.getString("radioProgramId");
-                    String presenter = prJson.getString("presenterId");
-                    String producer = prJson.getString("producerId");
-                    String dateOfProgram = prJson.getString("dateOfProgram");
-                    String startTime = prJson.getString("startTime");
-                    String duration = prJson.getString("duration");
-
-                    programSlots.add(new ProgramSlot(radioProgramName, presenter, producer, "", duration, startTime, dateOfProgram));
-
-                }
-            } catch (JSONException e) {
-                Log.v(TAG, e.getMessage());
-            }
-        } else {
-            Log.v(TAG, "JSON response error.");
-        }
-
-        if (scheduleController != null) {
-            scheduleController.scheduleRetrieved(programSlots);
-        }
     }
 }

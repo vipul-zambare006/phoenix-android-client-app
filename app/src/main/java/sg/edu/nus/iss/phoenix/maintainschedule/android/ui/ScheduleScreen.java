@@ -159,7 +159,7 @@ public class ScheduleScreen extends AppCompatActivity {
                     ProgramSlot ps = new ProgramSlot(rpTextView.getText().toString(), presenterTextView.getText().toString(), producerTextView.getText().toString(), assignedby.getText().toString(), mduration.getText().toString(), starttime.getText().toString(), mdateofprogram.getText().toString());
                     ControlFactory.getScheduleController().selectCreateSchedule(ps);
 
-                } else if (pr2edit.getAction().toLowerCase() != copy_string) { // Edited.
+                } else if (pr2edit.getAction().toString().toLowerCase() != copy_string) { // Edited.
                     Log.v(TAG, "Updating program slot " + pr2edit.getRadioProgramName() + "...");
 
                     pr2edit.setProducer(producerTextView.getText().toString());
@@ -172,6 +172,15 @@ public class ScheduleScreen extends AppCompatActivity {
 
                     ControlFactory.getScheduleController().selectUpdateSchedule(pr2edit);
                 } else {
+
+                    pr2edit.setProducer(producerTextView.getText().toString());
+                    pr2edit.setDuration(mduration.getText().toString());
+                    pr2edit.setDateOfProgram(mdateofprogram.getText().toString());
+                    pr2edit.setRadioProgramName(rpTextView.getText().toString());
+                    pr2edit.setPresenter(presenterTextView.getText().toString());
+                    pr2edit.setAssignedBy(assignedby.getText().toString());
+                    pr2edit.setStartTime(starttime.getText().toString());
+
                     ControlFactory.getScheduleController().selectCopyupdateSchedule(pr2edit);
                 }
                 return true;

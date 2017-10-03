@@ -100,5 +100,4 @@ public class UserScreen extends AppCompatActivity {
             userAdapter.add(user.get(i));
         }
     }
-
 }

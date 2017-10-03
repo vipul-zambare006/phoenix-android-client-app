@@ -6,6 +6,7 @@ import java.util.List;
 
 import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.core.android.controller.MainController;
+import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.CopyScheduleDelegate;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.CreateScheduleDelegate;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.DeleteScheduleDelegate;
 import sg.edu.nus.iss.phoenix.maintainschedule.android.delegate.RetrieveScheduleDelegate;
@@ -35,6 +36,7 @@ public class ScheduleController {
     public void onDisplayScheduleList(ScheduledProgramScreen scheduledProgramScreen) {
         this.scheduledProgramScreen = scheduledProgramScreen;
         new RetrieveScheduleDelegate(this).execute("all");
+        //new CopyScheduleDelegate(this).execute("copy");
     }
 
     public void schedulesRetrieved(List<ProgramSlot> programSlots) {
@@ -68,14 +70,10 @@ public class ScheduleController {
         this.scheduleScreen = scheduleScreen;
         if (pr2edit == null){
             scheduleScreen.createSchedule();
-        }
-
-        if (pr2edit.getAction() != null && pr2edit.getAction().toString().toLowerCase() == edit_string)
+        } else if (pr2edit.getAction() != null && pr2edit.getAction().toString().toLowerCase() == edit_string)
         {
             scheduleScreen.editSchedule(pr2edit);
-        }
-
-        if (pr2edit.getAction() != null && pr2edit.getAction().toString().toLowerCase() == copy_string)
+        } else if (pr2edit.getAction() != null && pr2edit.getAction().toString().toLowerCase() == copy_string)
         {
             scheduleScreen.copySchedule(pr2edit);
         }
@@ -86,7 +84,7 @@ public class ScheduleController {
     }
 
     public void selectCopyupdateSchedule(ProgramSlot pr) {
-        // new CopyScheduleDelegate(this).execute(pr);
+        new CopyScheduleDelegate(this).execute(pr);
     }
 
     public void selectDeleteSchedule(ProgramSlot pr) {
