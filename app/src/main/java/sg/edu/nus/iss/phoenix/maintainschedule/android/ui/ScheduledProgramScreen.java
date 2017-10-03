@@ -83,35 +83,29 @@ public class ScheduledProgramScreen extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // User clicked on a menu option in the app bar overflow menu
-        switch (item.getItemId()) {
-            // Respond to a click on the "View" menu option
-            case R.id.action_view:
-                if (selectedPS == null) {
-                    // Prompt for the selection of a radio program.
-                    Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
-                    Log.v(TAG, "There is no selected program slot.");
-                } else {
-                    // Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
-                    //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
-                    ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
-                }
-                //TODO for Copy Action to be performed here.
-            case R.id.action_copy:
-                if (selectedPS == null) {
-                    // Prompt for the selection of a radio program.
-                    Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
-                    Log.v(TAG, "There is no selected program slot.");
-                } else {
-                    Log.v(TAG, "Viewing Program Slot: " + selectedPS.getRadioProgramName() + "...");
-                    //  Log.v(TAG, "Viewing radio program: " + selectedPS.getRadioProgramName() + "...");
-                    //TODO Copy function to be called here
-                    selectedPS.setAction("copy");
-                    ControlFactory.getScheduleController().selectCopySchedule(selectedPS);
-                }
-
+        if(item.getItemId() == R.id.action_view)
+        {
+            if (selectedPS == null)
+            {
+                Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                selectedPS.setAction("edit");
+                ControlFactory.getScheduleController().selectEditSchedule(selectedPS);
+            }
         }
-
+        else
+        {
+            if (selectedPS == null) {
+                Toast.makeText(this, "Select a program slot first! Use arrow keys on emulator", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                selectedPS.setAction("copy");
+                ControlFactory.getScheduleController().selectCopySchedule(selectedPS);
+            }
+        }
         return true;
     }
 

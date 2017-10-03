@@ -27,6 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15px"
             android:layout_marginLeft="8dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:text="Selected Radio Program"
             android:hint="Selected Radio Program"
             tools:text="Selected Radio Program" />
@@ -45,6 +48,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:hint="Selected Presenter"
             android:text="Selected Presenter" />
 
@@ -62,6 +68,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:text="Selected Producer"
             android:hint="Selected Producer"/>
 
@@ -129,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="8"
+                android:maxLength="25"
                 android:text=""
                 tools:text="Assigned by" />
 
