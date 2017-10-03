@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,96 +12,64 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Radio Program"
-            tools:text="Select Radio Program" />
 
         <Button
             android:id="@+id/programName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click here" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:text="Select Radio Program" />
 
         <TextView
+            android:id="@+id/maintain_schedule_selected_programName_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Select Presenter"
-            tools:text="Select Presenter/Producer" />
+            android:layout_marginTop="15px"
+            android:layout_marginLeft="8dp"
+            android:text="Selected Radio Program"
+            android:hint="Selected Radio Program"
+            tools:text="Selected Radio Program" />
+
 
         <Button
             android:id="@+id/Selectpresenter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click here" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:layout_margin="8dp"
+            android:text="Select Presenter"
+            tools:text="Select Presenter" />
 
         <TextView
+            android:id="@+id/maintain_schedule_selected_Presenter_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Select Producer"
-            tools:text="Select Presenter/Producer" />
+            android:layout_marginLeft="8dp"
+            android:hint="Selected Presenter"
+            android:text="Selected Presenter" />
+
 
         <Button
             android:id="@+id/Selectproducer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click here" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/maintain_schedule_selected_programName_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Selected Radio Program"
-            tools:text="Selected Radio Program" />
-
-        <TextView
-            android:id="@+id/maintain_schedule_selected_Presenter_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            tools:text="Selected Presenter" />
+            android:layout_margin="8dp"
+            android:text="Select Producer"
+            tools:text="Select Producer" />
 
         <TextView
             android:id="@+id/maintain_schedule_selected_producer_text_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text=""
-            tools:text="Selected Producer" />
+            android:layout_marginLeft="8dp"
+            android:text="Selected Producer"
+            android:hint="Selected Producer"/>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:padding="8dp"
             android:text="Date OF Program"
             tools:text="Date OF Program" />
 
@@ -109,75 +77,64 @@
             android:id="@+id/maintain_schedule_date_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:padding="8dp"
             android:text="" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="8dp"
+            android:text="Duration"
+            tools:text="Duration" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Duration"
-                tools:text="Duration" />
-
-            <EditText
-                android:id="@+id/maintain_duration_time_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:maxLength="18"
-                android:text=""
-                tools:text="Duration" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/maintain_duration_time_text_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="8dp"
+            android:maxLength="8"
+            android:text=""
+            tools:text="Duration" />
 
-            <TextView
+
+        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="StartTime"
                 tools:text="StartTime" />
 
-            <EditText
+        <EditText
                 android:id="@+id/maintain_start_time_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="18"
+                android:maxLength="8"
                 android:text=""
                 tools:text="start_time" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
+        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="assignedby"
                 tools:text="assignedby" />
 
-            <EditText
+        <EditText
                 android:id="@+id/maintain_AssignedBy_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:maxLength="18"
+                android:maxLength="8"
                 android:text=""
-                tools:text="assignedby" />
-        </LinearLayout>
+                tools:text="Assigned by" />
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
+
 
