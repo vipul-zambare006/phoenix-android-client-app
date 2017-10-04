@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import java.util.List;
 
+import sg.edu.nus.iss.phoenix.core.android.controller.ControlFactory;
 import sg.edu.nus.iss.phoenix.core.android.controller.MainController;
 import sg.edu.nus.iss.phoenix.user.android.delegate.CreateUserDelegate;
 import sg.edu.nus.iss.phoenix.user.android.delegate.DeleteUserDelegate;
@@ -132,6 +133,11 @@ public class UserController {
 
     public void userRetrieved(List<User> user) {
         userScreen.showUsers(user);
+    }
+
+
+    public void maintainedUser() {
+        ControlFactory.getMainController().maintainedProgram();
     }
 
 }

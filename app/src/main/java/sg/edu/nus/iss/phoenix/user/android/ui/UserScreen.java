@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -94,7 +95,11 @@ public class UserScreen extends AppCompatActivity {
         return true;
     }
 
-    public void showUsers(List<User> user) {
+    @Override
+    public void onBackPressed() {
+        ControlFactory.getUserController().maintainedUser();
+    }
+        public void showUsers(List<User> user) {
         userAdapter.clear();
         for (int i = 0; i < user.size(); i++) {
             userAdapter.add(user.get(i));
